@@ -1,6 +1,6 @@
 @font-face {
     font-family: "For The Glory of Helghan"; /* Define the font family name */
-    src: url("../assets/For-The-Glory-of-Helghan.woff") format("woff"); /* Path to your font file */
+    src: url("assets/For-The-Glory-of-Helghan.woff") format("woff"); /* Path to your font file */
     font-weight: normal; /* Optional: specify the font weight */
     font-style: normal; /* Optional: specify the font style */
 }
@@ -8,7 +8,7 @@
 body {
     font-family: "For The Glory of Helghan", sans-serif; /* You can change this to the custom font if you'd like */
     background-size: cover;
-    background-image: url("../assets/background.png");
+    background-image: url("assets/background.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #fff;
@@ -21,7 +21,7 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
-    cursor: url('../assets/cursor_normal.png'), auto; /* Custom cursor for the entire body */
+    cursor: url('assets/cursor_normal.png'), auto; /* Custom cursor for the entire body */
     opacity: 0; /* Start with the body invisible */
     transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility */
 }
@@ -178,7 +178,7 @@ main img {
     overflow: hidden;
     background: transparent; /* Makes the background transparent */
     box-sizing: border-box; /* Ensures padding is included in the total width */
-    cursor: url('../assets/cursor_text_hover.png'), auto; /* Custom cursor for when hovering over text */
+    cursor: url('assets/cursor_text_hover.png'), auto; /* Custom cursor for when hovering over text */
 
     /* Add text shadow for glowing effect */
     text-shadow: 0 0 10px rgba(255, 38, 0, 0.5), /* Larger red glow */ 0 0 15px rgba(255, 0, 0, 0.3); /* Further larger glow */
@@ -216,7 +216,7 @@ main img {
     padding: 2px 10px;
     border: 1px solid rgba(232, 3, 0, 0.18);
     transition: all 0.2s ease-in-out; /* Add transition for smooth effect */
-    cursor: url('../assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
 }
 
 .buttonin.hover {
@@ -248,7 +248,7 @@ main img {
     padding: 2px 10px;
     border: 1px solid rgba(232, 3, 0, 0.18);
     transition: all 0.2s ease-in-out; /* Add transition for smooth effect */
-    cursor: url('../assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
 }
 
 button:hover {
