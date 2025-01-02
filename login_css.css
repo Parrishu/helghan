@@ -1,0 +1,373 @@
+@font-face {
+    font-family: "For The Glory of Helghan"; /* Define the font family name */
+    src: url("../assets/For-The-Glory-of-Helghan.woff") format("woff"); /* Path to your font file */
+    font-weight: normal; /* Optional: specify the font weight */
+    font-style: normal; /* Optional: specify the font style */
+}
+
+body {
+    font-family: "For The Glory of Helghan", sans-serif; /* You can change this to the custom font if you'd like */
+    background-size: cover;
+    background-image: url("../assets/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    cursor: url('../assets/cursor_normal.png'), auto; /* Custom cursor for the entire body */
+    opacity: 0; /* Start with the body invisible */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility */
+}
+
+body.visible {
+    opacity: 1; /* Fully visible when the class 'visible' is added */
+}
+
+main {
+    text-align: center; /* Center the content horizontally */
+    margin: 30px 10px;
+    padding: 90px;
+    background-color: rgba(255, 0, 0, 0.08);
+    border: 2px solid rgba(74, 0, 0, 0.91);
+}
+
+.left-hr {
+    position: absolute;
+    width: 25%;
+    border: 1px solid #7e0000;
+    right: 330px;
+    bottom: 240px;
+}
+
+.right-hr {
+    position: absolute;
+    width: 25%;
+    border: 1px solid #7e0000;
+    right: 120px;
+    bottom: 240px;
+}
+
+main img {
+    width: 45px;
+    height: 45px;
+    margin-top: -88px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.topbox {
+    font-family: "For The Glory of Helghan", sans-serif;
+    font-size: 8pt;
+    padding: 0 10px;
+    letter-spacing: 100px;
+    height: 45pt;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.08);
+    color: rgba(255, 2, 0, 0.38);
+    margin-bottom: 15px;
+    animation: shake 0.5s 0.5s;
+}
+
+.move-sys {
+    margin-left: 110px;
+}
+
+.bigbox {
+    border: 2px solid rgba(78, 0, 0, 0);
+    padding: 15px;
+}
+
+.bigbox.shake {
+    animation: shake 0.5s; /* Duration of the shake effect */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+}
+
+.toplogo img {
+    display: flex;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    position: relative;
+    width: 600px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    background-color: rgba(35, 0, 0, 0.51);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    box-shadow: 0 1px 1px rgba(255, 0, 0, 0.5);
+    overflow: hidden;
+    animation: shake 0.5s 0.5s;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #FF0400;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.input-container {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(172, 0, 0, 0.71);
+}
+
+.input-container2 {
+    font-family: "For The Glory of Helghan", sans-serif;
+    position: absolute;
+    letter-spacing: 7.2px;
+    padding-left: 0px;
+    color: rgb(255, 30, 0);
+    font-size: 33px;
+    top: 80px;
+    left: 61.3%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgba(122, 177, 59, 0);
+
+    /* Make this section unselectable */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard */
+
+    /* Prevent pointer events */
+    pointer-events: none;
+}
+
+.input-field {
+    font-family: "For The Glory of Helghan", sans-serif;
+    font-size: 32px;
+    letter-spacing: 31px;
+    padding-left: 38px;
+    color: #ff3217;
+    width: 100%; /* Makes the input field take the full width of the container */
+    height: 100%; /* Matches the height of the input container */
+    outline: none;
+    border: none; /* Removes the default border */
+    overflow: hidden;
+    background: transparent; /* Makes the background transparent */
+    box-sizing: border-box; /* Ensures padding is included in the total width */
+    cursor: url('../assets/cursor_text_hover.png'), auto; /* Custom cursor for when hovering over text */
+
+    /* Add text shadow for glowing effect */
+    text-shadow: 0 0 10px rgba(255, 38, 0, 0.5), /* Larger red glow */ 0 0 15px rgba(255, 0, 0, 0.3); /* Further larger glow */
+}
+
+/* Change the highlight color of selected text */
+::selection {
+    background-color: red; /* Highlight color */
+    color: black; /* Text color when highlighted */
+}
+
+::-moz-selection { /* Specific to Firefox */
+    background-color: red; /* Highlight color for Firefox */
+    color: black; /* Text color when highlighted in Firefox */
+}
+
+/* Optional: Add focus style */
+.input-field:focus {
+    outline: none; /* Removes the default focus outline */
+}
+
+.button-container {
+    position: absolute;
+    top: 170px; /* Adjust top position */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+}
+
+.buttonin {
+    font-family: "For The Glory of Helghan", sans-serif; /* Using your custom font */
+    font-size: 18px;
+    background-color: rgba(177, 3, 0, 0.14);
+    height: 30px;
+    color: rgb(135, 0, 0);
+    padding: 2px 10px;
+    border: 1px solid rgba(232, 3, 0, 0.18);
+    transition: all 0.2s ease-in-out; /* Add transition for smooth effect */
+    cursor: url('../assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+}
+
+.buttonin.hover {
+    background-color: rgb(255, 50, 23); /* Increase opacity */
+    box-shadow: 0 0 10px rgb(129, 0, 0); /* Add glow effect */
+}
+
+.button-container2 {
+    position: absolute;
+    top: 170px; /* Adjust top position */
+    left: 67%;
+    transform: translateX(-50%); /* Center horizontally */
+}
+
+#particles-js {
+    position: fixed; /* Change to fixed so it covers entire viewport */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    z-index: 0; /* Ensure it is behind other elements */
+}
+
+.buttonoff {
+    font-family: "For The Glory of Helghan", sans-serif; /* Using your custom font */
+    font-size: 18px;
+    background-color: transparent;
+    color: rgba(255, 0, 0, 0.22);
+    padding: 2px 10px;
+    border: 1px solid rgba(232, 3, 0, 0.18);
+    transition: all 0.2s ease-in-out; /* Add transition for smooth effect */
+    cursor: url('../assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+}
+
+button:hover {
+    background-color: rgb(255, 50, 23); /* Increase opacity on hover */
+    box-shadow: 0 0 10px rgb(129, 0, 0); /* Add a subtle glow effect */
+}
+
+.system-messages {
+    font-family: "For The Glory of Helghan", sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 65px;
+    background-color: rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    color: rgba(255, 4, 0, 0.31);
+
+    /* Add text shadow for glowing effect */
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.16); /* Further larger glow */
+}
+
+#span1 {
+    margin-left: 100px;
+}
+
+#span1ext {
+    margin-left: 139px;
+}
+
+#span2 {
+    margin-left: 128px;
+}
+
+#span2ext {
+    margin-left: 117px;
+}
+
+.shake {
+    animation: shake 0.5s; /* Duration of the shake effect */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-5px);
+    }
+    20% {
+        transform: translateX(5px);
+    }
+    30% {
+        transform: translateX(-5px);
+    }
+    40% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.input-field.hide-caret {
+    caret-color: transparent; /* Hide the caret */
+}
+
+@keyframes vertical-shake {
+    0% {
+        transform: translateY(0);
+    }
+    10% {
+        transform: translateY(-1px);
+    }
+    20% {
+        transform: translateY(1px);
+    }
+    30% {
+        transform: translateY(-1px);
+    }
+    40% {
+        transform: translateY(1px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.semi-transparent {
+    opacity: 0.7; /* Set semi-transparency level */
+    transition: opacity 0s ease-in-out; /* Smooth transition effect */
+}
+
+.buttonin {
+    /* Keep your existing styles */
+    z-index: 1; /* Ensures button is above other elements */
+}
+
+.bigbox.vertical-shake {
+    animation: vertical-shake 0.5s; /* Duration of the vertical shake effect */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+}
+
+/* Existing styles can remain unchanged */
+
+.version-info {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: rgba(255, 0, 0, 0.37);
+    z-index: 1000;
+    font-family: monospace, sans-serif;
+}
