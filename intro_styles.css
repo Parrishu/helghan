@@ -1,6 +1,6 @@
 @font-face {
     font-family: "For The Glory of Helghan"; /* Define the font family name */
-    src: url("../assets/For-The-Glory-of-Helghan.woff") format("woff"); /* Path to your font file */
+    src: url("assets/For-The-Glory-of-Helghan.woff") format("woff"); /* Path to your font file */
     font-weight: normal; /* Optional: specify the font weight */
     font-style: normal; /* Optional: specify the font style */
 }
@@ -9,7 +9,7 @@ body {
     background-color: #1b0000;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../assets/background_backup.png");
+    background-image: url("assets/background_backup.png");
     background-attachment: fixed;
     color: #ff3217; /* Bright red text */
     font-family: "For The Glory of Helghan", sans-serif;
@@ -17,7 +17,7 @@ body {
     overflow: hidden;
     user-select: none;
     line-height: 20px;
-    cursor: url('../assets/cursor_normal.png'), auto; /* Custom cursor for body */
+    cursor: url('assets/cursor_normal.png'), auto; /* Custom cursor for body */
 
     text-shadow:
             0 0 10px rgba(255, 47, 0, 0.5), /* Larger red glow */
@@ -41,7 +41,7 @@ body {
     overflow-y: auto;
     white-space: pre-line; /* Preserve whitespace */
     border: 1px solid #390000;
-    cursor: url('../assets/cursor_normal.png'), auto; /* Custom cursor for console */
+    cursor: url('assets/cursor_normal.png'), auto; /* Custom cursor for console */
 
     overflow: auto; /* Consider setting to auto if you want scrolling */
 }
