@@ -291,6 +291,16 @@ body {
     height: 5px;
 }
 
+.looping-gif {
+    position: fixed;    /* Position it fixed to keep it in place */
+    width: 35%;
+    right: 80px;       /* Adjust to your liking */
+    left: 50%;
+    top: 50%;          /* Center it vertically */
+    transform: translateY(-50%); /* Center the image vertically */
+    z-index: 1000;     /* Ensure it appears above other elements */
+}
+
 .version-info {
     position: fixed;
     bottom: 10px;
