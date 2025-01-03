@@ -136,6 +136,12 @@ function gameLoop() {
 // Start the game loop
 gameLoop();
 
+// Listen for popstate event to detect back navigation
+window.addEventListener('popstate', () => {
+    // Handle the previous page action as if Backspace was pressed
+    window.location.href = "login.html"; // Redirect to login.html
+});
+
 // Add a click event listener on the document
 document.addEventListener('click', (event) => {
     if (!event.target.closest('.menu-button') && currentlyHoveredButton) {
