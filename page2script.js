@@ -5,6 +5,7 @@ const menuButtons = document.querySelectorAll('.menu-button');
 
 // Variable to keep track of the currently hovered button
 let currentlyHoveredButton = null;
+let currentlyHoveredButtonIndex = 0; // Index for keyboard navigation
 
 // Load the hover sound
 const hoverSound = new Audio('../assets/hover.wav');
@@ -12,17 +13,18 @@ const hoverSound = new Audio('../assets/hover.wav');
 // Add the default hovered class to the first button on load
 const firstButton = document.querySelector('.first-button');
 firstButton.classList.add('hovered');
-currentlyHoveredButton = firstButton; // Set the default hovered button
+currentlyHoveredButton = firstButton;
+currentlyHoveredButtonIndex = 0; // Set index to the first button
 
-// Function to navigate to the next button
+// Function to navigate to a button by index
 function navigateToButton(nextIndex) {
     // Remove the hover effect from the currently hovered button only if it’s not the same as the next one
-    if (currentlyHoveredButton) {
+    if (currentlyHoveredButton && currentlyHoveredButtonIndex !== nextIndex) {
         currentlyHoveredButton.classList.remove('hovered');
     }
 
-    // Update the currently hovered button
-    currentlyHoveredButton = menuButtons[nextIndex];
+    currentlyHoveredButtonIndex = nextIndex; // Update index
+    currentlyHoveredButton = menuButtons[currentlyHoveredButtonIndex]; // Update currently hovered button
     currentHoverSound(); // Play hover sound
     currentlyHoveredButton.classList.add('hovered'); // Add hover effect
     currentlyHoveredButton.focus(); // Focus the next button
@@ -38,15 +40,7 @@ function currentHoverSound() {
 menuButtons.forEach((button, index) => {
     button.addEventListener('mouseenter', () => {
         currentHoverSound(); // Play sound on hover
-
-        // Allow mouse hover to change the currently hovered button
-        if (currentlyHoveredButton !== button) {
-            if (currentlyHoveredButton) {
-                currentlyHoveredButton.classList.remove('hovered');
-            }
-            button.classList.add('hovered');
-            currentlyHoveredButton = button;
-        }
+        navigateToButton(index); // Navigate to the button on mouse enter
     });
 
     button.addEventListener('mouseleave', () => {
@@ -68,46 +62,40 @@ menuButtons.forEach((button, index) => {
     });
 
     button.addEventListener('blur', () => {
-        // Handle blur: Do not remove the hovered class on blur
+        // Handle blur: Remove hover class if not currently hovered
         if (!button.matches(':hover') && currentlyHoveredButton === button) {
-            button.classList.remove('hovered'); // Optionally remove if not hovered
-            currentlyHoveredButton = null; // Reset if we no longer have interaction
+            button.classList.remove('hovered');
         }
     });
 });
 
-// Initial focus settings
-firstButton.tabIndex = 0;
-firstButton.focus();
-menuButtons.forEach(button => {
-    button.tabIndex = -1;
-});
-
 // Global keyboard navigation
 document.addEventListener('keydown', (event) => {
-    if (currentlyHoveredButton) {
-        const currentIndex = Array.from(menuButtons).indexOf(currentlyHoveredButton);
-
-        // Handle arrow keys
-        if (
-            event.key === "ArrowDown" || event.key === "ArrowRight" ||
-            event.key === "s" || event.key === "S" ||
-            event.key === "d" || event.key === "D"
-        ) {
-            event.preventDefault();
-            const nextIndex = (currentIndex + 1) % menuButtons.length;
-            navigateToButton(nextIndex);
-        } else if (
-            event.key === "ArrowUp" || event.key === "ArrowLeft" ||
-            event.key === "w" || event.key === "W" ||
-            event.key === "a" || event.key === "A" ||
-            event.key === "z" || event.key === "Z" ||
-            event.key === "q" || event.key === "Q"
-        ) {
-            event.preventDefault();
-            const prevIndex = (currentIndex - 1 + menuButtons.length) % menuButtons.length;
-            navigateToButton(prevIndex);
-        }
+    // Handle Navigation with Arrow, WASD, and AZERTY keys
+    if (
+        event.key === "ArrowDown" || event.key === "ArrowRight" ||
+        event.key === "s" || event.key === "S" || // QWERTY down
+        event.key === "d" || event.key === "D" || // QWERTY right
+        event.key === "d" || event.key === "D" // AZERTY right
+    ) {
+        event.preventDefault();
+        const nextIndex = (currentlyHoveredButtonIndex + 1) % menuButtons.length;
+        navigateToButton(nextIndex);
+    } else if (
+        event.key === "ArrowUp" || event.key === "ArrowLeft" ||
+        event.key === "w" || event.key === "W" || // QWERTY up
+        event.key === "z" || event.key === "Z" || // AZERTY up
+        event.key === "a" || event.key === "A" // AZERTY left
+    ) {
+        event.preventDefault();
+        const prevIndex = (currentlyHoveredButtonIndex - 1 + menuButtons.length) % menuButtons.length;
+        navigateToButton(prevIndex);
+    } else if (
+        event.key === "q" || event.key === "Q" // AZERTY left
+    ) {
+        event.preventDefault();
+        const prevIndex = (currentlyHoveredButtonIndex - 1 + menuButtons.length) % menuButtons.length;
+        navigateToButton(prevIndex);
     }
 });
 
@@ -118,17 +106,15 @@ function handleGamepadInput() {
         const gamepad = gamepads[0]; // Assuming we're interested in the first connected gamepad
         if (gamepad) {
             if (gamepad.buttons[12].pressed) { // Up
-                const currentIndex = Array.from(menuButtons).indexOf(currentlyHoveredButton);
-                const prevIndex = (currentIndex - 1 + menuButtons.length) % menuButtons.length;
+                const prevIndex = (currentlyHoveredButtonIndex - 1 + menuButtons.length) % menuButtons.length;
                 navigateToButton(prevIndex);
             } else if (gamepad.buttons[13].pressed) { // Down
-                const currentIndex = Array.from(menuButtons).indexOf(currentlyHoveredButton);
-                const nextIndex = (currentIndex + 1) % menuButtons.length;
+                const nextIndex = (currentlyHoveredButtonIndex + 1) % menuButtons.length;
                 navigateToButton(nextIndex);
             }
 
             if (gamepad.buttons[1].pressed) { // Cross button on PlayStation controller
-                console.log(`Button ${Array.from(menuButtons).indexOf(currentlyHoveredButton)} clicked`);
+                console.log(`Button ${currentlyHoveredButtonIndex} clicked`);
             }
         }
     }

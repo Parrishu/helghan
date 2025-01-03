@@ -7,7 +7,7 @@ body {
     -webkit-user-select: none; /* For Chrome/Safari */
     -moz-user-select: none; /* For Firefox */
     -ms-user-select: none; /* For Internet Explorer/Edge */
-
+    cursor: url('assets/cursor_normal.png'), auto; /* Custom cursor for the entire body */
 }
 
 #particles-js {
