@@ -133,7 +133,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     margin: 3px 0;
-    cursor: pointer;
+    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.08);
     position: relative;
     transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s; /* Changed transition */
