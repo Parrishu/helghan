@@ -1,0 +1,292 @@
+body {
+    margin: 0;
+    font-family: Klavika, sans-serif;
+/*    background-image: url("../assets/background_backup.png");*/
+    background: #150000;
+    user-select: none;  /* Prevent text selection on the entire page */
+    -webkit-user-select: none; /* For Chrome/Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For Internet Explorer/Edge */
+
+}
+
+#particles-js {
+    position: fixed; /* Change to fixed so it covers entire viewport */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    z-index: 0; /* Ensure it is behind other elements */
+}
+
+@font-face {
+    font-family: "For-The-Glory-of-Helghan";
+    src: url("assets/For-The-Glory-of-Helghan.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Klavika";
+    src: url("assets/klavika.woff") format("woff");
+}
+
+.menu-parent {
+    position: absolute;
+    left: -1%;
+    top: 10%;
+    transform-origin: top;
+    padding-left: 10px;
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    padding-right: 10px; /* Removed redundant padding-left and margin-top */
+}
+
+.rectangle {
+    width: 120px;
+    height: 40px;
+    margin-right: 10px;
+    border: 1px solid #e5dec6; /* Consolidated border styles */
+    box-shadow: 0 2px 10px red;
+    position: relative;
+}
+
+.cube {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    padding-top: 3px;
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e3dcc4;
+    font-size: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #e3dcc4;
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    text-shadow: 0 3px 10px red;
+}
+
+.box23 {
+    display: flex;               /* Use flexbox to align the cubes in a row */
+    position: fixed;            /* Fix position according to viewport */
+    right: 30px;                /* Distance from the right edge */
+    top: 13%;                   /* Center it vertically */
+    transform: translateY(-50%); /* Adjust to perfectly center vertically */
+    align-items: center;        /* Center the cubes vertically */
+}
+
+.cube2, .cube3 {
+    width: 25px;
+    height: 25px;
+    padding-top: 3px;
+    color: #e3dcc4;
+    font-size: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #e3dcc4;
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    text-shadow: 0 3px 10px red;
+    margin-left: 5px; /* Space between the cubes */
+}
+
+.cube4 {
+    position: absolute;
+    bottom: 50%;
+    right: 120%;
+    width: 25px;
+    height: 25px;
+    color: #e3dcc4;
+    font-size: 16px;
+    display: flex;
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    text-shadow: 0 3px 10px red;
+}
+
+.menu-text {
+    font-size: 40px;
+    color: #e5dec6;
+    border-right: 1px solid #e5dec6;
+    padding: 0 10px 0 1px; /* Consolidated padding */
+    text-shadow: 0 5px 10px red;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0 0 150px; /* Consolidated margin */
+}
+
+.menu-button {
+    font-size: 20px;
+    color: rgba(255, 0, 0, 0.84);
+    background-color: transparent;
+    border: 1px solid transparent; /* Add transparent border */
+    padding: 1px 15px;
+    width: 250px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 3px 0;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.08);
+    position: relative;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s; /* Changed transition */
+    border-left: 1px solid #c60000; /* Keep the left border intact */
+    outline: none;
+}
+
+.menu-button.hovered {
+    background-color: rgba(255, 0, 0, 0.25);
+    border-color: #c50000; /* Change the color of the existing border */
+    box-shadow: 0 0 5px red;
+    color: #e5dec6;
+    text-shadow: 0 2px 5px rgb(255, 0, 0);
+}
+
+/* Pseudo-elements for borders */
+.menu-button.hovered::before,
+.menu-button.hovered::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px; /* Width of the border */
+    background-color: #e5dec6;
+}
+
+.menu-button.hovered::before {
+    left: -5px; /* Matching width of the left border */
+}
+
+.menu-button.hovered::after {
+    right: -5px; /* Matching width of the right border */
+}
+
+.right-rectangle {
+    position: fixed;             /* Fixed so it stays in view while scrolling */
+    top: 25%;                     /* Align with the top of the viewport */
+    right: -239px;                   /* Align with the right edge */
+    width: 300px;               /* Width of the rectangle */
+    height: 38%;               /* Full height of the viewport */
+    border-left: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
+}
+
+.uright-rectangle {
+    position: fixed;             /* Fixed so it stays in view while scrolling */
+    top: 65%;                     /* Align with the top of the viewport */
+    right: -239px;                   /* Align with the right edge */
+    width: 300px;               /* Width of the rectangle */
+    height: 10%;               /* Full height of the viewport */
+    border-left: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
+}
+
+.button-prompts {
+    position: fixed;
+    bottom: 10%; /* Adjust as per desired position */
+    left: 5%; /* Adjust as per desired position */
+    display: flex; /* Align items horizontally */
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center; /* Center items vertically */
+}
+
+.button-prompt-container {
+    display: flex; /* Ensure prompts are aligned in a row */
+    gap: 20px; /* Space between the prompts */
+}
+
+.select, .back {
+    font-size: 15pt;
+    padding: 10px; /* Add padding for better touch area */
+    text-align: right; /* Text alignment */
+    background-color: rgba(255, 0, 0, 0);
+    color: rgba(255, 0, 0, 0.48);
+    display: flex; /* Use flexbox to better align items */
+    align-items: center; /* Center align text vertically */
+}
+
+.select img, .back img {
+    width: 20px; /* Specify width for the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 8px; /* Add space between image and text */
+}
+
+.slider1 {
+    position: absolute;
+    top: 75%;
+    border: 1px solid rgba(255, 0, 0, 0.31);
+    left: 4%;
+    width: 13px;
+    height: 40px;
+}
+
+.slider1-container {
+    position: absolute;
+    top: 65%;
+    background-color: rgba(255, 0, 0, 0.76);
+    right: 0;
+    width: 18px;
+    height: 5px;
+}
+
+.slider1-text {
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    font-size: 10pt;
+    letter-spacing: 3px;
+    position: absolute;
+    color: rgba(255, 0, 0, 0.3);
+    left: 30px;
+    bottom: 15px;
+}
+
+.slider2 {
+    position: absolute;
+    bottom: 38px;
+    border: 1px solid rgba(255, 0, 0, 0.31);
+    left: 4px;
+    width: 13px;
+    height: 40px;
+}
+
+.slider2-container {
+    position: absolute;
+    top: 30%;
+    background-color: rgb(219, 166, 34);
+    right: 0;
+    width: 18px;
+    height: 5px;
+}
+
+
+.slider2-text {
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    font-size: 10pt;
+    letter-spacing: 3px;
+    position: absolute;
+    color: rgba(255, 0, 0, 0.3);
+    left: 30px;
+    bottom: -5px;
+}
+
+.slider3 {
+    position: absolute;
+    bottom: 47px;
+    border: 1px solid rgba(255, 0, 0, 0.31);
+    left: -1px;
+    width: 13px;
+    height: 40px;
+}
+
+.slider3-container {
+    position: absolute;
+    top: 60%;
+    background-color: rgba(255, 0, 0, 0.44);
+    right: 0;
+    width: 18px;
+    height: 5px;
+}

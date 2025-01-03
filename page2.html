@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="google" content="notranslate">
-    <title>Ho ho ho ho ho, HEY!</title>
-    <link rel="icon" type="image/png" href="assets/icon_backup.png">
-    <style>
-        /* Make the video take up the whole screen */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            background: black;
-        }
-    </style>
+    <title>Main Menu Example</title>
+    <link rel="stylesheet" href="page2style.css">
+    <script src="assets/particles.js"></script> <!-- Link to the CSS file -->
 </head>
+
 <body>
-<video autoplay loop>
-    <source src="assets/vid.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+<div id="particles-js"></div> <!-- Particles.js container -->
+<div class="menu-parent"> <!-- New parent container -->
+    <div class="menu-container"> <!-- Container for the main menu -->
+        <div class="rectangle">
+            <div class="cube">P</div>
+        </div>
+        <div class="menu-text">MAIN MENU</div>
+    </div>
+    <div class="box23">
+        <div class="cube2">E</div>
+        <div class="cube3">X</div>
+        <div class="cube4">A</div>
+    </div>
 
+    <div class="button-container"> <!-- Separate container for the buttons -->
+        <div class="menu-button first-button">CAMPAIGN</div>
+        <div class="menu-button">CO-OP CAMPAIGN</div>
+        <div class="menu-button">MULTIPLAYER</div>
+        <div class="menu-button">BOTZONE</div>
+        <div class="menu-button">DOWNLOADABLE CONTENT</div>
+        <div class="menu-button">OPTIONS</div>
+        <div class="menu-button">CREDITS</div>
+    </div>
+</div>
+
+<div class="right-rectangle"></div>
+<div class="uright-rectangle"></div>
+
+<!-- Grouping button prompts into a single container for better spacing -->
+<div class="button-prompts">
+    <div class="button-prompt-container">
+        <div class="select">
+            <img src="assets/buttonX.png" alt="Select Icon">
+            SELECT
+        </div>
+        <div class="back">
+            <img src="assets/buttonO.png" alt="Back Icon">
+            BACK
+        </div>
+    </div>
+</div>
+
+<div class="background-decorations">
+    <div class="left-decorations">
+        <div class="sliders">
+            <div class="slider1">
+                <div class="slider1-container">
+                    <div class="slider1-text">YES</div>
+                    <div class="slider2">
+                        <div class="slider2-container">
+                            <div class="slider2-text">SYS</div>
+                        </div>
+                        <div class="slider3">
+                            <div class="slider3-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- closing left-decorations -->
+</div> <!-- closing background-decorations -->
+
+<script src="page2script.js"></script> <!-- Link to the JavaScript file -->
 <script>
-    // Function to enable fullscreen mode
-    function goFullscreen() {
-        const video = document.querySelector('video');
-        if (video.requestFullscreen) {
-            video.requestFullscreen();
-        } else if (video.webkitRequestFullscreen) { // Safari
-            video.webkitRequestFullscreen();
-        } else if (video.msRequestFullscreen) { // IE11
-            video.msRequestFullscreen();
-        }
-    }
-
-    // Go fullscreen on video ready
-    document.querySelector('video').addEventListener('loadeddata', goFullscreen);
-
-    // Open a new tab after 30 seconds when the user clicks anywhere on the page
-    document.addEventListener('click', function() {
-        setTimeout(() => {
-            window.open('https://discord.gg/Vya9zXyB5E', '_blank');
-        }, 30000); // 30 seconds = 30000 milliseconds
-    }, { once: true }); // The event listener will be removed after its first invocation
-
-    // Redirect to intro.html when using the back button from login.html
-    if (document.referrer.includes('login.html')) {
-        history.replaceState(null, null, 'intro.html'); // This updates the history state
-    }
+    // Initialize particles.js
+    particlesJS.load('particles-js', '../assets/particlesjs2-config.json', function () {
+        console.log('callback - particles.js config loaded');
+    });
 </script>
 </body>
 </html>
