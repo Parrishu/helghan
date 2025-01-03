@@ -71,6 +71,13 @@ menuButtons.forEach((button, index) => {
 
 // Global keyboard navigation
 document.addEventListener('keydown', (event) => {
+    // Check for Backspace key to redirect to login.html
+    if (event.key === "Backspace") {
+        event.preventDefault(); // Prevent the default backspace behavior
+        window.location.href = "login.html"; // Redirect to login.html
+        return; // Exit the function
+    }
+
     // Handle Navigation with Arrow, WASD, and AZERTY keys
     if (
         event.key === "ArrowDown" || event.key === "ArrowRight" ||
