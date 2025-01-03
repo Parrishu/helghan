@@ -138,9 +138,12 @@ gameLoop();
 
 // Listen for popstate event to detect back navigation
 window.addEventListener('popstate', () => {
-    // Handle the previous page action as if Backspace was pressed
+    // Redirect to login.html when back navigation occurs
     window.location.href = "login.html"; // Redirect to login.html
 });
+
+// Enhance history handling to allow for popstate detection
+window.history.pushState({}, document.title);
 
 // Add a click event listener on the document
 document.addEventListener('click', (event) => {
