@@ -211,9 +211,9 @@ body {
 }
 
 .select img, .back img {
-    width: 20px; /* Specify width for the image */
+    width: 25px; /* Specify width for the image */
     height: auto; /* Maintain aspect ratio */
-    margin-right: 8px; /* Add space between image and text */
+    margin-right: 10px; /* Add space between image and text */
 }
 
 .slider1 {

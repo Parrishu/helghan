@@ -1,1 +1,151 @@
-const _0x26b3c0=_0x4a47;function _0x4a47(_0x2b09c8,_0x20c794){const _0x5bcfa5=_0x5bcf();return _0x4a47=function(_0x4a4748,_0x5067a3){_0x4a4748=_0x4a4748-0x129;let _0x3dd8c6=_0x5bcfa5[_0x4a4748];return _0x3dd8c6;},_0x4a47(_0x2b09c8,_0x20c794);}function _0x5bcf(){const _0x33174e=['keypressSound','pause','30hxurgX','723276YUakZC','clickSound','length','.login-container','visible','shake','addEventListener','style','Enter','test','703IVUDpA','opacity','replace','192KgkHsk','preventDefault','href','2189880jGtuLB','spaceman','add','keydown','271430LqWsfA','rgba(255,\x200,\x200,\x200.22)','location','9053781zzfINu','semi-transparent','438820hGlsyc','key','vertical-shake','enterSound','10HDbHlP','Access\x20denied.\x20This\x20site\x20is\x20not\x20available\x20on\x20mobile\x20devices.','getElementById','.bigbox','play','querySelector','value','remove','78981fBhwMN','662IxRfWv','hide-caret','startupSound','Error\x20playing\x20startup\x20sound:','classList','error','Backspace','toLowerCase','currentTime','click','color','body','hover','userAgent','button.buttonoff'];_0x5bcf=function(){return _0x33174e;};return _0x5bcf();}(function(_0x24ca09,_0x2f90ed){const _0x2232d1=_0x4a47,_0x595730=_0x24ca09();while(!![]){try{const _0x111576=parseInt(_0x2232d1(0x156))/0x1*(-parseInt(_0x2232d1(0x13a))/0x2)+parseInt(_0x2232d1(0x14c))/0x3+parseInt(_0x2232d1(0x12d))/0x4+parseInt(_0x2232d1(0x160))/0x5*(-parseInt(_0x2232d1(0x14b))/0x6)+parseInt(_0x2232d1(0x139))/0x7*(-parseInt(_0x2232d1(0x159))/0x8)+-parseInt(_0x2232d1(0x15c))/0x9+parseInt(_0x2232d1(0x131))/0xa*(parseInt(_0x2232d1(0x12b))/0xb);if(_0x111576===_0x2f90ed)break;else _0x595730['push'](_0x595730['shift']());}catch(_0x37b14c){_0x595730['push'](_0x595730['shift']());}}}(_0x5bcf,0x25ff1),document[_0x26b3c0(0x152)]('DOMContentLoaded',()=>{const _0x258c0b=_0x26b3c0,_0xe77402=document[_0x258c0b(0x133)](_0x258c0b(0x13c));_0xe77402['loop']=!![],_0xe77402[_0x258c0b(0x14a)](),_0xe77402['currentTime']=0x0,document['body'][_0x258c0b(0x153)][_0x258c0b(0x157)]=0x0;const _0x365df4=()=>{const _0x107ce8=_0x258c0b;document[_0x107ce8(0x145)]['classList'][_0x107ce8(0x15e)](_0x107ce8(0x150)),document['body'][_0x107ce8(0x153)][_0x107ce8(0x157)]=0x1;};setTimeout(_0x365df4,0x64),_0xe77402[_0x258c0b(0x135)]()['catch'](_0x13ca91=>{const _0xcab250=_0x258c0b;console[_0xcab250(0x13f)](_0xcab250(0x13d),_0x13ca91);});const _0xdc0cef=document[_0x258c0b(0x136)]('button.buttonin'),_0x13b789=document[_0x258c0b(0x136)]('.input-field'),_0x456415=document[_0x258c0b(0x136)](_0x258c0b(0x148)),_0xee5e00=document[_0x258c0b(0x133)](_0x258c0b(0x130)),_0x4cf53c=document[_0x258c0b(0x133)](_0x258c0b(0x14d));function _0x453fed(){const _0x509855=_0x258c0b,_0x202442=document[_0x509855(0x136)](_0x509855(0x134)),_0x76efda=document[_0x509855(0x136)](_0x509855(0x14f));_0x13b789[_0x509855(0x137)][_0x509855(0x141)]()===_0x509855(0x15d)?(_0x202442[_0x509855(0x13e)][_0x509855(0x15e)](_0x509855(0x12f)),_0x202442[_0x509855(0x13e)][_0x509855(0x15e)](_0x509855(0x12c)),_0x76efda[_0x509855(0x13e)][_0x509855(0x15e)]('semi-transparent'),setTimeout(()=>{const _0xb542ad=_0x509855;_0x202442['classList'][_0xb542ad(0x138)](_0xb542ad(0x12c)),_0x76efda[_0xb542ad(0x13e)][_0xb542ad(0x138)](_0xb542ad(0x12c));},0xc8),setTimeout(()=>{const _0x4b26ab=_0x509855;document[_0x4b26ab(0x145)]['classList'][_0x4b26ab(0x138)](_0x4b26ab(0x150)),document[_0x4b26ab(0x145)]['style']['opacity']=0x0,setTimeout(()=>{const _0x528c00=_0x4b26ab;window[_0x528c00(0x12a)][_0x528c00(0x15b)]='page2.html';},0x320);},0x1f4)):(_0x4cf53c[_0x509855(0x135)](),_0xdc0cef[_0x509855(0x13e)][_0x509855(0x15e)](_0x509855(0x151)),setTimeout(()=>{const _0x1a1ada=_0x509855;_0xdc0cef['classList']['remove'](_0x1a1ada(0x151));},0x1f4));}_0x13b789[_0x258c0b(0x152)]('input',function(){const _0x5c367a=_0x258c0b;_0x13b789['value']=_0x13b789[_0x5c367a(0x137)][_0x5c367a(0x158)](/[^a-zA-Z0-9]/g,''),_0x13b789['value'][_0x5c367a(0x14e)]>=0x8?_0x13b789[_0x5c367a(0x13e)][_0x5c367a(0x15e)](_0x5c367a(0x13b)):_0x13b789[_0x5c367a(0x13e)]['remove'](_0x5c367a(0x13b)),_0x13b789[_0x5c367a(0x137)][_0x5c367a(0x14e)]===0x8?(_0xdc0cef[_0x5c367a(0x13e)][_0x5c367a(0x15e)](_0x5c367a(0x146)),_0x456415[_0x5c367a(0x153)][_0x5c367a(0x144)]='bright\x20red'):(_0xdc0cef[_0x5c367a(0x13e)][_0x5c367a(0x138)]('hover'),_0x456415[_0x5c367a(0x153)]['color']=_0x5c367a(0x129));}),_0xdc0cef[_0x258c0b(0x152)](_0x258c0b(0x143),function(){const _0x677e8c=_0x258c0b;_0x4cf53c[_0x677e8c(0x135)](),_0x453fed();}),_0x13b789[_0x258c0b(0x152)](_0x258c0b(0x15f),function(_0x87e2f2){const _0x32a0cf=_0x258c0b;if(_0x87e2f2['key'][_0x32a0cf(0x14e)]===0x1&&/^[a-zA-Z0-9]$/['test'](_0x87e2f2[_0x32a0cf(0x12e)])||_0x87e2f2[_0x32a0cf(0x12e)]===_0x32a0cf(0x140)){const _0x4d2e6d=document[_0x32a0cf(0x133)](_0x32a0cf(0x149));_0x4d2e6d[_0x32a0cf(0x142)]=0x0,_0x4d2e6d[_0x32a0cf(0x135)]();}}),document[_0x258c0b(0x152)](_0x258c0b(0x15f),function(_0x220375){const _0x53fb86=_0x258c0b;_0x220375[_0x53fb86(0x12e)]===_0x53fb86(0x154)&&(_0x220375[_0x53fb86(0x15a)](),_0x13b789[_0x53fb86(0x137)][_0x53fb86(0x141)]()===_0x53fb86(0x15d)?(_0xee5e00[_0x53fb86(0x135)](),_0x453fed()):(_0x4cf53c['play'](),_0x453fed()));});function _0x32c7ce(){const _0x255c80=_0x258c0b;return/Mobi|Android/i[_0x255c80(0x155)](navigator[_0x255c80(0x147)]);}_0x32c7ce()&&alert(_0x258c0b(0x132));}));
+// Global variable for audio instance
+if (!window.startupAudio) {
+    window.startupAudio = new Audio('assets/startup.wav'); // Create audio only if it doesn't exist
+    window.startupAudio.loop = true; // Enable looping
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if audio is already playing
+    if (localStorage.getItem('audioPlaying') === 'true') {
+        window.startupAudio.currentTime = parseFloat(localStorage.getItem('audioCurrentTime')) || 0; // Resume from where it left off
+        window.startupAudio.play().catch(error => {
+            console.error('Error playing startup sound:', error);
+        });
+    } else {
+        window.startupAudio.play().catch(error => {
+            console.error('Error playing startup sound:', error);
+        });
+        localStorage.setItem('audioPlaying', 'true');
+    }
+
+    // Store the current audio time in local storage
+    window.startupAudio.addEventListener('timeupdate', function () {
+        localStorage.setItem('audioCurrentTime', window.startupAudio.currentTime);
+    });
+
+    // Reset audio state when it ends
+    window.startupAudio.addEventListener('ended', function () {
+        localStorage.setItem('audioPlaying', 'false');
+    });
+
+    // Start with the body initially hidden
+    document.body.style.opacity = 0;
+
+    // Make the body visible
+    const showBody = () => {
+        document.body.classList.add('visible');
+        document.body.style.opacity = 1;
+    };
+
+    // Ensure opacity is shown after a short delay
+    setTimeout(showBody, 100);
+
+    const loginButton = document.querySelector('button.buttonin');
+    const inputField = document.querySelector('.input-field');
+    const buttonOff = document.querySelector('button.buttonoff');
+    const clickAudio = document.getElementById('clickSound');
+    const enterAudio = new Audio('assets/enter.wav'); // Separate sound for enter action
+
+    function handleLogin() {
+        const bigbox = document.querySelector('.bigbox');
+        const loginContainer = document.querySelector('.login-container');
+
+        if (inputField.value.toLowerCase() === "spaceman") {
+            // Play enter sound upon successful login
+            enterAudio.play().catch(error => {
+                console.error('Error playing enter sound:', error);
+            });
+
+            bigbox.classList.add('vertical-shake');
+            bigbox.classList.add('semi-transparent');
+            loginContainer.classList.add('semi-transparent');
+
+            setTimeout(() => {
+                bigbox.classList.remove('semi-transparent');
+                loginContainer.classList.remove('semi-transparent');
+            }, 200);
+
+            setTimeout(() => {
+                document.body.classList.remove('visible'); // Hide body during transition
+                document.body.style.opacity = 0; // Set opacity to 0 for transition
+                setTimeout(() => {
+                    window.location.href = "page2.html"; // Navigate to page2.html
+                }, 800); // Delay for visual transition before navigation
+            }, 500);
+        } else {
+            clickAudio.play();
+            loginButton.classList.add('shake'); // Add shake effect on failure
+            setTimeout(() => {
+                loginButton.classList.remove('shake'); // Remove shake effect
+            }, 500);
+        }
+    }
+
+    inputField.addEventListener('input', function () {
+        inputField.value = inputField.value.replace(/[^a-zA-Z0-9]/g, '');
+        inputField.classList.toggle('hide-caret', inputField.value.length >= 8);
+
+        if (inputField.value.length === 8) {
+            loginButton.classList.add('hover');
+            buttonOff.style.color = 'bright red';
+        } else {
+            loginButton.classList.remove('hover');
+            buttonOff.style.color = 'rgba(255, 0, 0, 0.22)';
+        }
+    });
+
+    loginButton.addEventListener('click', function () {
+        clickAudio.play();
+        handleLogin();
+    });
+
+    inputField.addEventListener('keydown', function (event) {
+        if ((event.key.length === 1 && /^[a-zA-Z0-9]$/.test(event.key)) || event.key === 'Backspace') {
+            const keypressAudio = document.getElementById('keypressSound');
+            keypressAudio.currentTime = 0;
+            keypressAudio.play();
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent any default form submission
+            handleLogin(); // Call login handler
+        }
+    });
+
+    function isMobileDevice() {
+        return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
+    if (isMobileDevice()) {
+        alert("Access denied. This site is not available on mobile devices.");
+    }
+
+    // Ensure audio pauses when the tab is hidden, and resumes when it becomes visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            window.startupAudio.pause(); // Pause the audio when the tab is hidden
+        } else {
+            // Resume playback if audio was playing before
+            if (localStorage.getItem('audioPlaying') === 'true') {
+                window.startupAudio.play().catch(error => {
+                    console.error('Error resuming startup sound:', error);
+                });
+            }
+        }
+    });
+
+    // Listen for the beforeunload event to stop the audio when leaving the page
+    window.addEventListener('beforeunload', () => {
+        window.startupAudio.pause();
+        localStorage.setItem('audioPlaying', 'false'); // Set audio playing state to false
+    });
+
+    // Listen for the pageshow event to handle back navigation from page2.html
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            window.location.reload(); // Force refresh if navigating back from cache
+        }
+    });
+});
