@@ -1,9 +1,9 @@
 body {
     margin: 0;
     font-family: Klavika, sans-serif;
-/*    background-image: url("../assets/background_backup.png");*/
+    /*    background-image: url("../assets/background_backup.png");*/
     background: #150000;
-    user-select: none;  /* Prevent text selection on the entire page */
+    user-select: none; /* Prevent text selection on the entire page */
     -webkit-user-select: none; /* For Chrome/Safari */
     -moz-user-select: none; /* For Firefox */
     -ms-user-select: none; /* For Internet Explorer/Edge */
@@ -71,12 +71,12 @@ body {
 }
 
 .box23 {
-    display: flex;               /* Use flexbox to align the cubes in a row */
-    position: fixed;            /* Fix position according to viewport */
-    right: 30px;                /* Distance from the right edge */
-    top: 13%;                   /* Center it vertically */
+    display: flex; /* Use flexbox to align the cubes in a row */
+    position: fixed; /* Fix position according to viewport */
+    right: 30px; /* Distance from the right edge */
+    top: 13%; /* Center it vertically */
     transform: translateY(-50%); /* Adjust to perfectly center vertically */
-    align-items: center;        /* Center the cubes vertically */
+    align-items: center; /* Center the cubes vertically */
 }
 
 .cube2, .cube3 {
@@ -104,7 +104,18 @@ body {
     font-size: 16px;
     display: flex;
     font-family: "For-The-Glory-of-Helghan", sans-serif;
-    text-shadow: 0 3px 10px red;
+}
+
+.cube5 {
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    font-size: 6pt;
+    letter-spacing: 2px;
+    position: fixed;
+    width: 200%;
+    color: rgba(255, 60, 0, 0.2);
+    right: 120px;
+    bottom: 20px;
+
 }
 
 .menu-text {
@@ -169,20 +180,20 @@ body {
 }
 
 .right-rectangle {
-    position: fixed;             /* Fixed so it stays in view while scrolling */
-    top: 25%;                     /* Align with the top of the viewport */
-    right: -239px;                   /* Align with the right edge */
-    width: 300px;               /* Width of the rectangle */
-    height: 38%;               /* Full height of the viewport */
+    position: fixed; /* Fixed so it stays in view while scrolling */
+    top: 25%; /* Align with the top of the viewport */
+    right: -239px; /* Align with the right edge */
+    width: 300px; /* Width of the rectangle */
+    height: 38%; /* Full height of the viewport */
     border-left: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
 }
 
 .uright-rectangle {
-    position: fixed;             /* Fixed so it stays in view while scrolling */
-    top: 65%;                     /* Align with the top of the viewport */
-    right: -239px;                   /* Align with the right edge */
-    width: 300px;               /* Width of the rectangle */
-    height: 10%;               /* Full height of the viewport */
+    position: fixed; /* Fixed so it stays in view while scrolling */
+    top: 65%; /* Align with the top of the viewport */
+    right: -239px; /* Align with the right edge */
+    width: 300px; /* Width of the rectangle */
+    height: 10%; /* Full height of the viewport */
     border-left: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
 }
 
@@ -202,7 +213,8 @@ body {
 
 .select, .back {
     font-size: 15pt;
-    padding: 10px; /* Add padding for better touch area */
+    padding: 0; /* Add padding for better touch area */
+    margin-bottom: -10%;
     text-align: right; /* Text alignment */
     background-color: rgba(255, 0, 0, 0);
     color: rgba(255, 0, 0, 0.48);
@@ -291,14 +303,46 @@ body {
     height: 5px;
 }
 
+.icon1 {
+    position: absolute;
+    border: transparent;
+    left: -5px;
+    bottom: 70px;
+    height: 25px;
+    width: 25px;
+}
+
+.icon1 img {
+    width: 100%;
+    height: auto;
+}
+
+.icon2 {
+    position: absolute;
+    border: transparent;
+    left: 28px;
+    bottom: 0px;
+    height: 25px;
+    width: 25px;
+}
+
+.icon3 {
+    position: absolute;
+    border: transparent;
+    left: 0px;
+    bottom: 28px;
+    height: 25px;
+    width: 25px;
+}
+
 .looping-gif {
-    position: fixed;    /* Position it fixed to keep it in place */
-    width: 35%;
-    right: 80px;       /* Adjust to your liking */
-    left: 50%;
-    top: 50%;          /* Center it vertically */
+    position: fixed; /* Position it fixed to keep it in place */
+    width: 34%;
+    right: 80px; /* Adjust to your liking */
+    left: 55%;
+    top: 40%; /* Center it vertically */
     transform: translateY(-50%); /* Center the image vertically */
-    z-index: 1000;     /* Ensure it appears above other elements */
+    z-index: 1000; /* Ensure it appears above other elements */
 }
 
 .version-info {

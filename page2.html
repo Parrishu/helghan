@@ -24,6 +24,7 @@
         <div class="cube2">E</div>
         <div class="cube3">X</div>
         <div class="cube4">A</div>
+        <div class="cube5">SYZ ON AT XY R WOX BY</div>
     </div>
 
     <div class="button-container"> <!-- Separate container for the buttons -->
@@ -44,17 +45,21 @@
 <div class="button-prompts">
     <div class="button-prompt-container">
         <div class="select">
-            <img src="assets/buttonX.png" alt="Select Icon">
+            <img src="assets/buttonX.png" alt="Select Icon" draggable="false" oncontextmenu="return false;"
+                 class="no-select">
             SELECT
         </div>
         <div class="back">
-            <img src="assets/buttonO.png" alt="Back Icon">
+            <img src="assets/buttonO.png" alt="Back Icon" draggable="false" oncontextmenu="return false;"
+                 class="no-select">
             BACK
         </div>
     </div>
 </div>
 
 <div class="background-decorations">
+    <div class="right-decorations">
+    </div>
     <div class="left-decorations">
         <div class="sliders">
             <div class="slider1">
@@ -67,22 +72,35 @@
                         <div class="slider3">
                             <div class="slider3-container">
                             </div>
+                            <div class="icon1">
+                                <img src="assets/shape1.png" alt="Select Icon" draggable="false"
+                                     oncontextmenu="return false;" class="no-select">
+                                <div class="icon2">
+                                    <img src="assets/shape2.png" alt="Select Icon" draggable="false"
+                                         oncontextmenu="return false;" class="no-select">
+                                    <div class="icon3">
+                                        <img src="assets/shape3.png" alt="Select Icon" draggable="false"
+                                             oncontextmenu="return false;" class="no-select">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="icons">
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div> <!-- closing left-decorations -->
-</div> <!-- closing background-decorations -->
+            </div> <!-- closing left-decorations -->
+        </div> <!-- closing background-decorations -->
 
-<script src="page2script.js"></script> <!-- Link to the JavaScript file -->
-<script>
-    // Initialize particles.js
-    particlesJS.load('particles-js', '../assets/particlesjs2-config.json', function () {
-        console.log('callback - particles.js config loaded');
-    });
-</script>
-<img src="assets/StA.gif" alt="StA" class="looping-gif">
-<div class="version-info">Version 02.01 - by @prrish</div>
+        <script src="page2script.js"></script> <!-- Link to the JavaScript file -->
+        <script>
+            // Initialize particles.js
+            particlesJS.load('particles-js', '../assets/particlesjs2-config.json', function () {
+                console.log('callback - particles.js config loaded');
+            });
+        </script>
+        <img src="assets/StA.gif" alt="StA" class="looping-gif" draggable="false" oncontextmenu="return false;"
+             class="no-select">
+        <div class="version-info">Version 02.01 - by @prrish</div>
 </body>
 </html>
