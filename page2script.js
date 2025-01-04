@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Gamepad support
     let lastGamepadInputTime = 0; // Track the last gamepad input time
-    const navigationDelay = 180; // Delay in milliseconds
+    const navigationDelay = 170; // Delay in milliseconds
 
     function handleGamepadInput() {
         const gamepads = navigator.getGamepads();
