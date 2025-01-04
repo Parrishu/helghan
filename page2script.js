@@ -64,10 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Global keyboard navigation
-    let lastInputTime = 0; // Track the last navigation input time
-    const navigationDelay = 180; // Delay in milliseconds
-
+    // Global keyboard navigation (no input delay)
     document.addEventListener('keydown', (event) => {
         // Check for Backspace key to redirect to login.html
         if (event.key === "Backspace") {
@@ -75,12 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = "login.html"; // Redirect to login.html
             return; // Exit the function
         }
-
-        const currentTime = Date.now();
-        if (currentTime - lastInputTime < navigationDelay) {
-            return; // Ignore input if within delay
-        }
-        lastInputTime = currentTime; // Update last input time
 
         // Handle Navigation with Arrow, WASD, and AZERTY keys
         if (event.key === "ArrowDown" || event.key === "ArrowRight" ||
@@ -102,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Gamepad support
     let lastGamepadInputTime = 0; // Track the last gamepad input time
+    const navigationDelay = 180; // Delay in milliseconds
 
     function handleGamepadInput() {
         const gamepads = navigator.getGamepads();
@@ -150,6 +142,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start the game loop
     gameLoop();
-
-    // Do not include any visibility change or audio unload event as this is not needed anymore
 });
