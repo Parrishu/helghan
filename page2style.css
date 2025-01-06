@@ -1,8 +1,8 @@
 body {
     margin: 0;
     font-family: Klavika, sans-serif;
-    /*    background-image: url("../assets/background_backup.png");*/
-    background: #150000;
+    background-image: url("assets/background_empty.png");
+    background-size: cover;
     user-select: none; /* Prevent text selection on the entire page */
     -webkit-user-select: none; /* For Chrome/Safari */
     -moz-user-select: none; /* For Firefox */
@@ -121,9 +121,18 @@ body {
 .menu-text {
     font-size: 40px;
     color: #e5dec6;
-    border-right: 1px solid #e5dec6;
     padding: 0 10px 0 1px; /* Consolidated padding */
     text-shadow: 0 5px 10px red;
+}
+
+.menu-rectangle {
+    display: flex;
+    border-right: 1px solid #e1dac2;
+    border-top: 1px solid #e1dac2;
+    border-bottom: 1px solid #e1dac2;
+    width: 3px;
+    height: 38px;
+    box-shadow: 0 5px 10px red;
 }
 
 .button-container {
@@ -182,19 +191,77 @@ body {
 .right-rectangle {
     position: fixed; /* Fixed so it stays in view while scrolling */
     top: 25%; /* Align with the top of the viewport */
-    right: -239px; /* Align with the right edge */
-    width: 300px; /* Width of the rectangle */
+    right: 51px; /* Align with the right edge */
+    width: 5px; /* Width of the rectangle */
     height: 38%; /* Full height of the viewport */
-    border-left: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
+    border-right: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
+    border-top: 2px solid rgba(255, 0, 0, 0.38);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.38);
+}
+
+.icon4 {
+    border: transparent;
+    position: absolute;
+    right: 25px;
+    bottom: 5px;
+    height: 13px;
+    width: 13px;
+}
+
+.icon5 {
+    border: transparent;
+    display: flex;
+    position: absolute;
+    right: 25px;
+    bottom: 35px;
+    height: 13px;
+    width: 13px;
+}
+
+.icon6 {
+    border: transparent;
+    display: flex;
+    position: absolute;
+    right: 25px;
+    bottom: 52px;
+    height: 13px;
+    width: 13px;
+}
+
+.icon5 p {
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    color: rgba(255, 0, 0, 0.37);
+    letter-spacing: 1px;
+    font-size: 7pt;
+    position: absolute;
+    bottom: 8px;
+    right: 20px;
+}
+
+.icon6 p {
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    color: rgba(255, 0, 0, 0.59);
+    letter-spacing: 1px;
+    font-size: 7pt;
+    position: absolute;
+    top: 41px;
+    right: 20px;
+}
+
+.icon4 img, .icon5 img .icon6 img {
+    width: 100%;
+    height: auto;
 }
 
 .uright-rectangle {
     position: fixed; /* Fixed so it stays in view while scrolling */
     top: 65%; /* Align with the top of the viewport */
-    right: -239px; /* Align with the right edge */
-    width: 300px; /* Width of the rectangle */
+    right: 51px; /* Align with the right edge */
+    width: 5px;
     height: 10%; /* Full height of the viewport */
-    border-left: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
+    border-right: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
+    border-top: 2px solid rgba(255, 0, 0, 0.38);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.38);
 }
 
 .button-prompts {
@@ -217,7 +284,7 @@ body {
     margin-bottom: -10%;
     text-align: right; /* Text alignment */
     background-color: rgba(255, 0, 0, 0);
-    color: rgba(255, 0, 0, 0.48);
+    color: rgba(255, 0, 0, 0.55);
     display: flex; /* Use flexbox to better align items */
     align-items: center; /* Center align text vertically */
 }
@@ -353,4 +420,16 @@ body {
     color: rgba(255, 0, 0, 0.37);
     z-index: 1000;
     font-family: monospace, sans-serif;
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0; /* Start transparent */
+    animation: fadeIn 1s forwards; /* Fade in animation */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* End with full opacity */
+    }
 }

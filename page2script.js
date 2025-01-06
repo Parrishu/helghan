@@ -1,5 +1,3 @@
-// page2script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     // Select all menu buttons
     const menuButtons = document.querySelectorAll('.menu-button');
@@ -16,6 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     firstButton.classList.add('hovered');
     currentlyHoveredButton = firstButton;
     currentlyHoveredButtonIndex = 0; // Set index to the first button
+
+    // Apply fade-in effect to all relevant elements except the background
+    const elementsToFadeIn = document.querySelectorAll('body > *:not(#particles-js)'); // This will select all direct children of body except for the particles background.
+
+    elementsToFadeIn.forEach(element => {
+        element.classList.add('fade-in');
+    });
 
     // Function to navigate to a button by index
     function navigateToButton(nextIndex) {

@@ -19,6 +19,7 @@
             <div class="cube">P</div>
         </div>
         <div class="menu-text">MAIN MENU</div>
+        <div class="menu-rectangle"></div>
     </div>
     <div class="box23">
         <div class="cube2">E</div>
@@ -38,8 +39,24 @@
     </div>
 </div>
 
-<div class="right-rectangle"></div>
-<div class="uright-rectangle"></div>
+<div class="right-rectangle">
+    <div class="icon4">
+        <img src="assets/shape4.png" alt="Decoration Shape" draggable="false" oncontextmenu="return false;"
+             class="no-select">
+    </div>
+    <div class="icon5">
+        <img src="assets/shape4.png" alt="Decoration Shape" draggable="false" oncontextmenu="return false;"
+             class="no-select">
+        <p>YJ</p>
+    </div>
+    <div class="icon6">
+        <img src="assets/shape4.png" alt="Decoration Shape" draggable="false" oncontextmenu="return false;"
+             class="no-select">
+        <p>PU</p>
+    </div>
+</div>
+<div class="uright-rectangle">
+</div>
 
 <!-- Grouping button prompts into a single container for better spacing -->
 <div class="button-prompts">
@@ -89,18 +106,20 @@
                     <div class="icons">
                     </div>
                 </div>
-            </div> <!-- closing left-decorations -->
-        </div> <!-- closing background-decorations -->
+            </div>
+        </div> <!-- Closing for slider1 -->
+    </div> <!-- Closing for left-decorations -->
+</div> <!-- Closing for background-decorations -->
 
-        <script src="page2script.js"></script> <!-- Link to the JavaScript file -->
-        <script>
-            // Initialize particles.js
-            particlesJS.load('particles-js', '../assets/particlesjs2-config.json', function () {
-                console.log('callback - particles.js config loaded');
-            });
-        </script>
-        <img src="assets/StA.gif" alt="StA" class="looping-gif" draggable="false" oncontextmenu="return false;"
-             class="no-select">
-        <div class="version-info">Version 02.01 - by @prrish</div>
+<script src="page2script.js"></script> <!-- Link to the JavaScript file -->
+<script>
+    // Initialize particles.js
+    particlesJS.load('particles-js', '../assets/particlesjs2-config.json', function () {
+        console.log('callback - particles.js config loaded');
+    });
+</script>
+<img src="assets/StA.gif" alt="StA" class="looping-gif" draggable="false" oncontextmenu="return false;"
+     class="no-select">
+<div class="version-info">Version 02.01 - by @prrish</div>
 </body>
 </html>
