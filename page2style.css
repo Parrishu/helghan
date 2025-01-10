@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    background-color: #000;
+    color: #000;
     font-family: Klavika, sans-serif;
     background-image: url("assets/background_empty.png");
     background-size: cover;
@@ -104,6 +106,7 @@ body {
     font-size: 16px;
     display: flex;
     font-family: "For-The-Glory-of-Helghan", sans-serif;
+    text-shadow: 0 3px 8px red;
 }
 
 .cube5 {
@@ -248,7 +251,7 @@ body {
     right: 20px;
 }
 
-.icon4 img, .icon5 img .icon6 img {
+.icon4 img, .icon5 img, .icon6 img {
     width: 100%;
     height: auto;
 }
@@ -341,7 +344,6 @@ body {
     height: 5px;
 }
 
-
 .slider2-text {
     font-family: "For-The-Glory-of-Helghan", sans-serif;
     font-size: 10pt;
@@ -432,4 +434,8 @@ body {
     to {
         opacity: 1; /* End with full opacity */
     }
+}
+
+.right-rectangle, .uright-rectangle, .looping-gif {
+    transition: opacity 0.2s ease-out;
 }
