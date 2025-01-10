@@ -8,13 +8,13 @@
     <link rel="icon" type="image/png" href="assets/icon_backup.png">
     <title>Helghan Systems</title>
     <link rel="stylesheet" href="page2style.css">
-    <script src="assets/particles.js"></script> <!-- Link to the CSS file -->
+    <script src="assets/particles.js"></script>
 </head>
 
 <body>
-<div id="particles-js"></div> <!-- Particles.js container -->
-<div class="menu-parent"> <!-- New parent container -->
-    <div class="menu-container"> <!-- Container for the main menu -->
+<div id="particles-js"></div>
+<div class="menu-parent">
+    <div class="menu-container">
         <div class="rectangle">
             <div class="cube">P</div>
         </div>
@@ -28,14 +28,24 @@
         <div class="cube5">SYZ ON AT XY R WOX BY</div>
     </div>
 
-    <div class="button-container"> <!-- Separate container for the buttons -->
-        <div class="menu-button first-button">CAMPAIGN</div>
-        <div class="menu-button">CO-OP CAMPAIGN</div>
-        <div class="menu-button">MULTIPLAYER</div>
-        <div class="menu-button">BOTZONE</div>
-        <div class="menu-button">DOWNLOADABLE CONTENT</div>
-        <div class="menu-button">OPTIONS</div>
-        <div class="menu-button">CREDITS</div>
+    <div class="button-container-wrapper">
+        <div class="button-container">
+            <div class="menu-button first-button" id="campaignButton">CAMPAIGN</div>
+            <div class="menu-button" id="coopButton">CO-OP CAMPAIGN</div>
+            <div class="menu-button">MULTIPLAYER</div>
+            <div class="menu-button">BOTZONE</div>
+            <div class="menu-button">DOWNLOADABLE CONTENT</div>
+            <div class="menu-button">OPTIONS</div>
+            <div class="menu-button">CREDITS</div>
+        </div>
+
+        <!-- This container will hold the secondary buttons -->
+        <div class="secondary-button-container" style="display: none;">
+            <div class="menu-button secondary-button" id="newMissionButton">NEW MISSION</div>
+            <div class="menu-button secondary-button" id="selectMissionButton">SELECT MISSION</div>
+            <div class="menu-button secondary-button" id="restartCheckpointButton">RESTART CHECKPOINT</div>
+            <div class="menu-button" id="backToMenuButton">BACK TO MENU</div>
+        </div>
     </div>
 </div>
 
@@ -55,10 +65,9 @@
         <p>PU</p>
     </div>
 </div>
-<div class="uright-rectangle">
-</div>
 
-<!-- Grouping button prompts into a single container for better spacing -->
+<div class="uright-rectangle"></div>
+
 <div class="button-prompts">
     <div class="button-prompt-container">
         <div class="select">
@@ -75,8 +84,7 @@
 </div>
 
 <div class="background-decorations">
-    <div class="right-decorations">
-    </div>
+    <div class="right-decorations"></div>
     <div class="left-decorations">
         <div class="sliders">
             <div class="slider1">
@@ -87,8 +95,7 @@
                             <div class="slider2-text">SYS</div>
                         </div>
                         <div class="slider3">
-                            <div class="slider3-container">
-                            </div>
+                            <div class="slider3-container"></div>
                             <div class="icon1">
                                 <img src="assets/shape1.png" alt="Select Icon" draggable="false"
                                      oncontextmenu="return false;" class="no-select">
@@ -103,15 +110,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="icons">
-                    </div>
+                    <div class="icons"></div>
                 </div>
             </div>
-        </div> <!-- Closing for slider1 -->
-    </div> <!-- Closing for left-decorations -->
-</div> <!-- Closing for background-decorations -->
+        </div>
+    </div>
+</div>
 
-<script src="page2script.js"></script> <!-- Link to the JavaScript file -->
+<script src="page2script.js"></script>
 <script>
     // Initialize particles.js
     particlesJS.load('particles-js', '../assets/particlesjs2-config.json', function () {

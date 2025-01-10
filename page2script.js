@@ -1,56 +1,72 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Select all menu buttons
     const menuButtons = document.querySelectorAll('.menu-button');
+    const buttonContainer = document.querySelector('.button-container');
+    const secondaryButtonContainer = document.querySelector('.secondary-button-container');
+    const campaignButton = document.getElementById('campaignButton');
+    const backToMenuButton = document.getElementById('backToMenuButton');
+    const menuText = document.querySelector('.menu-text'); // Get the menu text element
 
-    // Variable to keep track of the currently hovered button
     let currentlyHoveredButton = null;
-    let currentlyHoveredButtonIndex = 0; // Index for keyboard navigation
+    let currentlyHoveredButtonIndex = 0;
 
-    // Load the hover sound
     const hoverSound = new Audio('../assets/hover.wav');
 
-    // Add the default hovered class to the first button on load
     const firstButton = document.querySelector('.first-button');
     firstButton.classList.add('hovered');
     currentlyHoveredButton = firstButton;
-    currentlyHoveredButtonIndex = 0; // Set index to the first button
+    currentlyHoveredButtonIndex = 0;
 
-    // Apply fade-in effect to all relevant elements except the background
-    const elementsToFadeIn = document.querySelectorAll('body > *:not(#particles-js)'); // This will select all direct children of body except for the particles background.
-
+    const elementsToFadeIn = document.querySelectorAll('body > *:not(#particles-js)');
     elementsToFadeIn.forEach(element => {
         element.classList.add('fade-in');
     });
 
-    // Function to navigate to a button by index
+    // Update the menu buttons based on visibility
+    function updateMenuButtons() {
+        const visibleButtonContainer = buttonContainer.style.display === 'none' ? secondaryButtonContainer : buttonContainer;
+        return visibleButtonContainer.querySelectorAll('.menu-button');
+    }
+
     function navigateToButton(nextIndex) {
+        const menuButtons = updateMenuButtons();
         if (currentlyHoveredButton && currentlyHoveredButtonIndex !== nextIndex) {
             currentlyHoveredButton.classList.remove('hovered');
         }
 
-        currentlyHoveredButtonIndex = nextIndex; // Update index
-        currentlyHoveredButton = menuButtons[currentlyHoveredButtonIndex]; // Update currently hovered button
-        currentHoverSound(); // Play hover sound
-        currentlyHoveredButton.classList.add('hovered'); // Add hover effect
-        currentlyHoveredButton.focus(); // Focus the next button
+        currentlyHoveredButtonIndex = nextIndex < 0 ? menuButtons.length - 1 : nextIndex % menuButtons.length;
+        currentlyHoveredButton = menuButtons[currentlyHoveredButtonIndex];
+        currentHoverSound();
+        currentlyHoveredButton.classList.add('hovered');
+        currentlyHoveredButton.focus();
     }
 
-    // Function to play hover sound
     function currentHoverSound() {
-        hoverSound.currentTime = 0; // Restart sound
-        hoverSound.play(); // Play sound
+        hoverSound.currentTime = 0;
+        hoverSound.play();
     }
 
-    // Add event listeners on menu buttons
+    // Function to update the menu text
+    function updateMenuTitle(title) {
+        menuText.textContent = title; // Change the text content of the menu
+    }
+
     menuButtons.forEach((button, index) => {
         button.addEventListener('mouseenter', () => {
-            currentHoverSound(); // Play sound on hover
-            navigateToButton(index); // Navigate to the button on mouse enter
+            currentHoverSound();
+            navigateToButton(index);
+        });
+
+        button.addEventListener('click', function () {
+            // Check if the button has a secondary menu
+            if (button === campaignButton) {
+                updateMenuTitle(button.textContent.toUpperCase()); // Set the menu title to the campaign button text
+            }
+            console.log(`Button ${index} clicked: ${button.textContent}`);
         });
 
         button.addEventListener('keydown', (event) => {
             if (event.key === "Enter") {
-                button.click(); // Trigger button click
+                button.click();
                 console.log(`Button ${index} clicked`);
             }
         });
@@ -69,82 +85,106 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Global keyboard navigation (no input delay)
+    // Global keyboard navigation
     document.addEventListener('keydown', (event) => {
-        // Check for Backspace key to redirect to login.html
         if (event.key === "Backspace") {
-            event.preventDefault(); // Prevent the default backspace behavior
-            window.location.href = "login.html"; // Redirect to login.html
-            return; // Exit the function
+            event.preventDefault();
+            window.location.href = "login.html";
+            return;
         }
 
-        // Handle Navigation with Arrow, WASD, and AZERTY keys
-        if (event.key === "ArrowDown" || event.key === "ArrowRight" ||
-            event.key === "s" || event.key === "S" || // QWERTY down
-            event.key === "d" || event.key === "D") { // QWERTY right
+        const menuButtons = updateMenuButtons(); // Update based on visible container
+
+        // Navigate using Arrow and WASD keys directly
+        if (event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "s" || event.key === "S" || event.key === "d" || event.key === "D") {
             event.preventDefault();
             const nextIndex = (currentlyHoveredButtonIndex + 1) % menuButtons.length;
             navigateToButton(nextIndex);
-        } else if (
-            event.key === "ArrowUp" || event.key === "ArrowLeft" ||
-            event.key === "w" || event.key === "W" || // QWERTY up
-            event.key === "z" || event.key === "Z" || // AZERTY up
-            event.key === "a" || event.key === "A") { // AZERTY left
+        } else if (event.key === "ArrowUp" || event.key === "ArrowLeft" || event.key === "w" || event.key === "W" || event.key === "z" || event.key === "Z" || event.key === "a" || event.key === "A" || event.key === "q" || event.key === "Q") {
             event.preventDefault();
             const prevIndex = (currentlyHoveredButtonIndex - 1 + menuButtons.length) % menuButtons.length;
             navigateToButton(prevIndex);
+        } else if (event.key === " ") {
+            // Space acts as a click
+            event.preventDefault();
+            currentlyHoveredButton.click(); // Act like a mouse click
         }
     });
 
-    // Gamepad support
-    let lastGamepadInputTime = 0; // Track the last gamepad input time
-    const navigationDelay = 170; // Delay in milliseconds
+    // Gamepad support and game loop (unchanged)
+    let lastGamepadInputTime = 0;
+    const navigationDelay = 170;
 
     function handleGamepadInput() {
         const gamepads = navigator.getGamepads();
         if (gamepads) {
-            const gamepad = gamepads[0]; // Assuming we're interested in the first connected gamepad
+            const gamepad = gamepads[0];
             if (gamepad) {
-                // Joystick input (Adjust threshold as needed)
-                const joystickThreshold = 0.2; // Adjust sensitivity
-                const yAxis = gamepad.axes[1]; // Y-axis for vertical movement
+                const joystickThreshold = 0.2;
+                const yAxis = gamepad.axes[1];
 
                 const currentTime = Date.now();
                 if (lastGamepadInputTime + navigationDelay > currentTime) {
-                    return; // Skip this frame if it's too soon after the last input
+                    return;
                 }
 
-                // Check joystick for up/down movement
-                if (yAxis < -joystickThreshold) { // Up
+                if (yAxis < -joystickThreshold) {
                     const prevIndex = (currentlyHoveredButtonIndex - 1 + menuButtons.length) % menuButtons.length;
                     navigateToButton(prevIndex);
-                    lastGamepadInputTime = currentTime; // Update input time
-                } else if (yAxis > joystickThreshold) { // Down
+                    lastGamepadInputTime = currentTime;
+                } else if (yAxis > joystickThreshold) {
                     const nextIndex = (currentlyHoveredButtonIndex + 1) % menuButtons.length;
                     navigateToButton(nextIndex);
-                    lastGamepadInputTime = currentTime; // Update input time
+                    lastGamepadInputTime = currentTime;
                 }
 
-                // Check if arrow keys are pressed (gamepad buttons for directional navigation)
-                if (gamepad.buttons[12].pressed) { // DPAD Up
+                if (gamepad.buttons[12].pressed) {
                     const prevIndex = (currentlyHoveredButtonIndex - 1 + menuButtons.length) % menuButtons.length;
                     navigateToButton(prevIndex);
-                    lastGamepadInputTime = currentTime; // Update input time
-                } else if (gamepad.buttons[13].pressed) { // DPAD Down
+                    lastGamepadInputTime = currentTime;
+                } else if (gamepad.buttons[13].pressed) {
                     const nextIndex = (currentlyHoveredButtonIndex + 1) % menuButtons.length;
                     navigateToButton(nextIndex);
-                    lastGamepadInputTime = currentTime; // Update input time
+                    lastGamepadInputTime = currentTime;
                 }
             }
         }
     }
 
-    // Game loop to check gamepad state
     function gameLoop() {
         handleGamepadInput();
-        requestAnimationFrame(gameLoop); // Keep polling
+        requestAnimationFrame(gameLoop);
     }
 
-    // Start the game loop
     gameLoop();
+
+    secondaryButtonContainer.style.display = 'none'; // Hide secondary buttons initially
+
+    // Campaign button logic
+    campaignButton.addEventListener('click', function () {
+        buttonContainer.style.display = 'none'; // Hide the main button container
+        secondaryButtonContainer.style.display = 'block'; // Show the secondary button container
+        currentlyHoveredButtonIndex = 0; // Reset index for the new button container
+        navigateToButton(currentlyHoveredButtonIndex); // Navigate to the first button in the secondary container
+    });
+
+    // Back to menu button logic
+    backToMenuButton.addEventListener('click', function () {
+        secondaryButtonContainer.style.display = 'none'; // Hide the secondary buttons
+        buttonContainer.style.display = 'block'; // Show the main button container again
+        currentlyHoveredButtonIndex = 0; // Reset index for the new button container
+        navigateToButton(currentlyHoveredButtonIndex); // Navigate to the first button in the main button container
+        updateMenuTitle("MAIN MENU"); // Reset title to Main Menu
+    });
+
+    // Event listeners on secondary buttons
+    const secondaryButtons = secondaryButtonContainer.querySelectorAll('.menu-button.secondary-button');
+    secondaryButtons.forEach((button, index) => {
+        button.addEventListener('click', function () {
+            console.log(`Secondary button ${index} clicked: ${button.textContent}`);
+            // You can also set a title for these buttons if desired
+        });
+    });
+
+    // Additional logic can be added here as needed
 });
