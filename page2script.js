@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const secondaryButtonContainer = document.querySelector('.secondary-button-container');
     const campaignButton = document.getElementById('campaignButton');
     const backToMenuButton = document.getElementById('backToMenuButton');
-    const menuText = document.querySelector('.menu-text'); // Get the menu text element
+    const menuText = document.querySelector('.menu-text');
 
     let currentlyHoveredButton = null;
     let currentlyHoveredButtonIndex = 0;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         element.classList.add('fade-in');
     });
 
-    // Update the menu buttons based on visibility
+    // Update the menu buttons based on visibility.
     function updateMenuButtons() {
         const visibleButtonContainer = buttonContainer.style.display === 'none' ? secondaryButtonContainer : buttonContainer;
         return visibleButtonContainer.querySelectorAll('.menu-button');
@@ -45,9 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
         hoverSound.play();
     }
 
-    // Function to update the menu text
     function updateMenuTitle(title) {
-        menuText.textContent = title; // Change the text content of the menu
+        menuText.textContent = title; // Change the text content of the menu.
     }
 
     menuButtons.forEach((button, index) => {
@@ -57,16 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         button.addEventListener('click', function () {
-            // Check if the button has a secondary menu
             if (button === campaignButton) {
-                updateMenuTitle(button.textContent.toUpperCase()); // Set the menu title to the campaign button text
+                updateMenuTitle(button.textContent.toUpperCase()); // Set title to campaign button text.
             }
             console.log(`Button ${index} clicked: ${button.textContent}`);
         });
 
         button.addEventListener('keydown', (event) => {
-            if (event.key === "Enter") {
-                button.click();
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault(); // Prevent any default actions.
+                button.click(); // Simulate a button click.
                 console.log(`Button ${index} clicked`);
             }
         });
@@ -93,9 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const menuButtons = updateMenuButtons(); // Update based on visible container
+        const menuButtons = updateMenuButtons(); // Update based on visible container.
 
-        // Navigate using Arrow and WASD keys directly
+        // Navigate using Arrow and WASD keys.
         if (event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "s" || event.key === "S" || event.key === "d" || event.key === "D") {
             event.preventDefault();
             const nextIndex = (currentlyHoveredButtonIndex + 1) % menuButtons.length;
@@ -105,9 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const prevIndex = (currentlyHoveredButtonIndex - 1 + menuButtons.length) % menuButtons.length;
             navigateToButton(prevIndex);
         } else if (event.key === " ") {
-            // Space acts as a click
+            // Space acts as a click.
             event.preventDefault();
-            currentlyHoveredButton.click(); // Act like a mouse click
+            currentlyHoveredButton.click(); // Act like a mouse click.
+        } else if (event.key === "Enter") {
+            // Enter key also acts as a click.
+            currentlyHoveredButton.click();
         }
     });
 
@@ -158,23 +160,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gameLoop();
 
-    secondaryButtonContainer.style.display = 'none'; // Hide secondary buttons initially
+    secondaryButtonContainer.style.display = 'none'; // Hide secondary buttons initially.
 
     // Campaign button logic
     campaignButton.addEventListener('click', function () {
-        buttonContainer.style.display = 'none'; // Hide the main button container
-        secondaryButtonContainer.style.display = 'block'; // Show the secondary button container
-        currentlyHoveredButtonIndex = 0; // Reset index for the new button container
-        navigateToButton(currentlyHoveredButtonIndex); // Navigate to the first button in the secondary container
+        buttonContainer.style.display = 'none'; // Hide the main button container.
+        secondaryButtonContainer.style.display = 'block'; // Show the secondary button container.
+        currentlyHoveredButtonIndex = 0; // Reset index for the new button container.
+        navigateToButton(currentlyHoveredButtonIndex); // Navigate to the first button in the secondary container.
     });
 
     // Back to menu button logic
     backToMenuButton.addEventListener('click', function () {
-        secondaryButtonContainer.style.display = 'none'; // Hide the secondary buttons
-        buttonContainer.style.display = 'block'; // Show the main button container again
-        currentlyHoveredButtonIndex = 0; // Reset index for the new button container
-        navigateToButton(currentlyHoveredButtonIndex); // Navigate to the first button in the main button container
-        updateMenuTitle("MAIN MENU"); // Reset title to Main Menu
+        secondaryButtonContainer.style.display = 'none'; // Hide the secondary buttons.
+        buttonContainer.style.display = 'block'; // Show the main button container again.
+        currentlyHoveredButtonIndex = 0; // Reset index for the new button container.
+        navigateToButton(currentlyHoveredButtonIndex); // Navigate to the first button in the main button container.
+        updateMenuTitle("MAIN MENU"); // Reset title to Main Menu.
     });
 
     // Event listeners on secondary buttons
