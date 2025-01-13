@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     menuButtons.forEach((button) => {
+        // Existing hover and click handlers...
         button.addEventListener('mouseenter', () => {
             currentHoverSound();
             if (currentlyHoveredButton) {
@@ -80,6 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log(`Button clicked: ${button.textContent}`);
         });
+
+        // MY DISCORD button functionality
+        if (button.textContent.trim() === 'MY DISCORD') {
+            button.addEventListener('click', function () {
+                clickSound.currentTime = 0; // Reset the sound
+                clickSound.play(); // Play click sound
+                window.open('http://discordapp.com/users/108932560100274176', '_blank'); // Open link in new tab
+                console.log('Navigated to MY DISCORD');
+            });
+        }
 
         // Handling keydown events for Enter and Space
         button.addEventListener('keydown', (event) => {
