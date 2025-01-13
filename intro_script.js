@@ -1,1 +1,50 @@
-const _0x5384c5=_0x10eb;(function(_0x517c7e,_0x2e2866){const _0x18fc41=_0x10eb,_0x4d418a=_0x517c7e();while(!![]){try{const _0x10b4f0=-parseInt(_0x18fc41(0xd7))/0x1*(-parseInt(_0x18fc41(0xd3))/0x2)+parseInt(_0x18fc41(0xd6))/0x3+parseInt(_0x18fc41(0xd4))/0x4*(parseInt(_0x18fc41(0xdd))/0x5)+parseInt(_0x18fc41(0xd9))/0x6*(-parseInt(_0x18fc41(0xdf))/0x7)+-parseInt(_0x18fc41(0xe0))/0x8*(-parseInt(_0x18fc41(0xdb))/0x9)+parseInt(_0x18fc41(0xde))/0xa+-parseInt(_0x18fc41(0xe4))/0xb*(parseInt(_0x18fc41(0xdc))/0xc);if(_0x10b4f0===_0x2e2866)break;else _0x4d418a['push'](_0x4d418a['shift']());}catch(_0x5e2297){_0x4d418a['push'](_0x4d418a['shift']());}}}(_0x5c7b,0xbe104));const messages=[_0x5384c5(0xda),_0x5384c5(0xd2)],outputDiv=document[_0x5384c5(0xe1)](_0x5384c5(0xd8));function _0x10eb(_0x2df555,_0x3631f4){const _0x5c7b63=_0x5c7b();return _0x10eb=function(_0x10eb53,_0x772260){_0x10eb53=_0x10eb53-0xd2;let _0x349f5c=_0x5c7b63[_0x10eb53];return _0x349f5c;},_0x10eb(_0x2df555,_0x3631f4);}function _0x5c7b(){const _0x1f053f=['1888110qLgBgW','5738510HxQpWh','14FQMqGI','112iVKdRS','getElementById','location','textContent','10953811NNfmAV','innerHTML','Have\x20you\x20ever\x20had\x20a\x20dream,\x20Neo,\x20that\x20you\x20were\x20so\x20sure\x20was\x20real?\x0aWhat\x20if\x20you\x20were\x20unable\x20to\x20wake\x20fromthat\x20dream?\x0aHow\x20would\x20you\x20know\x20the\x20difference\x20between\x20the\x20dream\x20world\x20and\x20the\x20real\x20world?\x0aAccess\x20restricted....','213814jtSqig','12MYRLDb','login.html','3348984vpxoVg','7BlzMOz','output','2646678CbXKxx','System\x20expunged.\x0aData\x20loading....\x0aInitiating\x20diagnostics.','52029yoGhes','24zdPAbo'];_0x5c7b=function(){return _0x1f053f;};return _0x5c7b();}let messageIndex=0x0;function typeMessage(_0xffeb1c,_0x338be4){let _0x1db806=0x0;const _0x2a17ae=setInterval(()=>{const _0x18a3a7=_0x10eb;_0x1db806<_0xffeb1c['length']?(outputDiv[_0x18a3a7(0xe3)]+=_0xffeb1c[_0x1db806],_0x1db806++):(clearInterval(_0x2a17ae),setTimeout(()=>{clearOutput();},_0x338be4));},0x1);}function clearOutput(){const _0x5819fc=_0x5384c5;outputDiv[_0x5819fc(0xe3)]+='\x0a',setTimeout(()=>{const _0x1b4251=_0x5819fc;outputDiv[_0x1b4251(0xe5)]='',messageIndex++,messageIndex<messages['length']?printRandomMessage():redirectToLogin();},0x3e8);}function printRandomMessage(){const _0x290fb6=messages[messageIndex];typeMessage(_0x290fb6,0x3);}function redirectToLogin(){setTimeout(()=>{const _0x27de28=_0x10eb;window[_0x27de28(0xe2)]['href']=_0x27de28(0xd5);},0x1);}printRandomMessage();
+const messages = [
+    "System expunged.\nData loading....\nInitiating diagnostics.",
+    "Have you ever had a dream, Neo, that you were so sure was real?\nWhat if you were unable to wake fromthat dream?\nHow would you know the difference between the dream world and the real world?\nAccess restricted....",
+];
+
+const outputDiv = document.getElementById('output');
+let messageIndex = 0; // Track the number of messages printed
+
+function typeMessage(message, delay) {
+    let index = 0;
+
+    const interval = setInterval(() => {
+        if (index < message.length) {
+            outputDiv.textContent += message[index];
+            index++;
+        } else {
+            clearInterval(interval);
+            setTimeout(() => {
+                clearOutput();
+            }, delay); // time to wait before clearing the output
+        }
+    }, 1); // Typing speed (10ms for each character)
+}
+
+function clearOutput() {
+    outputDiv.textContent += "\n"; // Optional: Adds a new line before clearing
+    setTimeout(() => {
+        outputDiv.innerHTML = ""; // Clear the output div
+        messageIndex++; // Increment the message index
+        if (messageIndex < messages.length) {
+            printRandomMessage();
+        } else {
+            redirectToLogin(); // Redirect when all messages have been shown
+        }
+    }, 300); // Delay for the next message to appear
+}
+
+function printRandomMessage() {
+    const message = messages[messageIndex]; // Get the current message based on index
+    typeMessage(message, 3); // Display each message for 1 second before clearing
+}
+
+function redirectToLogin() {
+    setTimeout(() => {
+        window.location.href = 'login.html'; // Redirect to login.html
+    }, 1); // Add a delay before redirecting so the user can see the last message
+}
+
+// Start the first message
+printRandomMessage();
