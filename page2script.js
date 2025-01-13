@@ -5,11 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const campaignButton = document.getElementById('campaignButton');
     const backToMenuButton = document.getElementById('backToMenuButton');
     const menuText = document.querySelector('.menu-text');
+    const logoutButton = document.querySelector('.menu-button:last-child'); // LOG OUT button
 
     let currentlyHoveredButton = null;
     let currentlyHoveredButtonIndex = 0;
 
+    // Load sound effects
     const hoverSound = new Audio('../assets/hover.wav');
+    const clickSound = new Audio('../assets/keypress2.wav'); // Load click sound
 
     function initializeMenu() {
         const firstButton = buttonContainer.querySelector('.first-button');
@@ -54,27 +57,44 @@ document.addEventListener('DOMContentLoaded', () => {
         menuText.textContent = title;
     }
 
-    menuButtons.forEach((button, index) => {
+    menuButtons.forEach((button) => {
         button.addEventListener('mouseenter', () => {
             currentHoverSound();
-            navigateToButton(index);
+            if (currentlyHoveredButton) {
+                currentlyHoveredButton.classList.remove('hovered'); // Remove hover from currently hovered button
+            }
+            currentlyHoveredButton = button; // Set the currently hovered button
+            currentlyHoveredButton.classList.add('hovered'); // Add hover to the new button
+            currentlyHoveredButtonIndex = [...menuButtons].indexOf(button); // Update index
         });
 
         button.addEventListener('click', function () {
+            if (button === campaignButton || button === logoutButton || button === backToMenuButton) {
+                clickSound.currentTime = 0; // Reset the sound
+                clickSound.play(); // Play click sound
+            }
+
             if (button === campaignButton) {
                 updateMenuTitle(button.textContent.toUpperCase());
             }
-            console.log(`Button ${index} clicked: ${button.textContent}`);
+
+            console.log(`Button clicked: ${button.textContent}`);
         });
 
+        // Handling keydown events for Enter and Space
         button.addEventListener('keydown', (event) => {
             if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
-                button.click();
-                console.log(`Button ${index} clicked`);
+                if (button === campaignButton || button === logoutButton || button === backToMenuButton) {
+                    clickSound.currentTime = 0; // Reset the sound
+                    clickSound.play(); // Play click sound
+                }
+                button.click(); // Simulate button click
+                console.log(`Button clicked via key: ${button.textContent}`);
             }
         });
 
+        // Focus management
         button.addEventListener('focus', () => {
             if (currentlyHoveredButton !== button) {
                 button.classList.add('hovered');
@@ -89,9 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Add logout functionality
-    const logoutButton = document.querySelector('.menu-button:last-child'); // Select the LOG OUT button
+    // Logout button functionality
     logoutButton.addEventListener('click', function () {
+        clickSound.currentTime = 0; // Reset the sound
+        clickSound.play(); // Play click sound
         window.location.href = "login.html"; // Redirects to login.html
         console.log('Logged out and redirected to login.html');
     });
@@ -121,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Gamepad support and game loop remain unchanged...
     let lastGamepadInputTime = 0;
     const navigationDelay = 170;
 
@@ -190,6 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Back to menu button logic
     backToMenuButton.addEventListener('click', function () {
+        clickSound.currentTime = 0; // Play the click sound
+        clickSound.play(); // Play click sound
         secondaryButtonContainer.style.display = 'none';
         buttonContainer.style.display = 'block';
         currentlyHoveredButtonIndex = 0;
@@ -208,11 +230,15 @@ document.addEventListener('DOMContentLoaded', () => {
         updateMenuTitle("MAIN MENU");
     });
 
-    // Event listeners on secondary buttons
+    // Event listeners for secondary buttons
     const secondaryButtons = secondaryButtonContainer.querySelectorAll('.menu-button.secondary-button');
     secondaryButtons.forEach((button, index) => {
         button.addEventListener('click', function () {
-            console.log(`Secondary button ${index} clicked: ${button.textContent}`);
+            if (button.id === 'backToMenuButton') {
+                clickSound.currentTime = 0; // Reset the sound
+                clickSound.play(); // Play click sound for back to menu
+            }
+            console.log(`Secondary button clicked: ${button.textContent}`);
         });
     });
 });
