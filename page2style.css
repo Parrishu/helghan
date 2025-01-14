@@ -426,11 +426,11 @@ body {
 }
 
 .upright-rectangle {
-    position: absolute;
+    position: relative;
     width: 100px;
-    right: 30px;
+    right: 130px;
     height: 60%;
-    border: 1px solid rgb(36, 255, 0);
+    border: 1px solid rgba(36, 255, 0, 0.23);
 }
 
 .multidecoration {
@@ -438,18 +438,57 @@ body {
     width: 90%;
     right: 0;
     height: 100%;
-    border: 1px solid rgb(0, 20, 255);
+    border: 1px solid rgba(0, 20, 255, 0.32);
+}
+
+.mdmiddleright {
+    position: absolute;
+    top: 25%;
+    left: 90%;
+    width: 5px;
+    height: 30%;
+    border: 1px solid rgba(255, 0, 0, 0.38);
+    border-left: none;
 }
 
 .mdbottomright {
-    position: absolute;
-    width: 5%;
-    right: 0;
-    bottom: 10%;
-    height: 50px;
-    border-bottom: 1px solid red;
-    border-top: 1px solid red;
-    border-right: 1px solid red;
+    display: flex;
+    align-items: flex-start; /* Aligns items to the top of the container */
+    justify-content: flex-end; /* Align items to the right */
+    position: relative; /* Allow absolute children to work as expected */
+    width: 5px; /* Confirmed width */
+    left: 90%;
+    top: 60%;
+    height: 30%; /* Confirmed height */
+    border: 1px solid rgba(255, 0, 0, 0.38);
+    border-left: none;
+}
+
+.mdbrectangle1 {
+    position: relative; /* Change from absolute to relative */
+    right: 50%;
+    top: 10%;
+    width: 6px;
+    height: 80%; /* as per requirement */
+    background-color: rgba(255, 0, 0, 0.38);
+    overflow: hidden; /* Ensure hidden overflow */
+    max-height: 100%; /* Ensure it doesn't go outside its parent */
+}
+
+.mdbrectangle2 {
+    position: relative; /* Change from absolute to relative */
+    right: 50%;
+    top: 11%;
+    width: 5px;
+    height: 80%; /* as per requirement */
+    background-color: rgba(255, 0, 0, 0.38);
+    overflow: hidden; /* Ensure hidden overflow */
+    max-height: 100%; /* Ensure it doesn't go outside its parent */
+}
+
+.mdbrectangle2 p {
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    color: white;
 }
 
 .version-info {
