@@ -2,7 +2,7 @@ body {
     margin: 0;
     background-color: #000;
     color: #000;
-    font-family: Klavika, sans-serif;
+    font-family: Klavika, sans-serif, sans-serif;
     background-image: url("assets/background_empty.png");
     background-size: cover;
     user-select: none; /* Prevent text selection on the entire page */
@@ -207,10 +207,89 @@ body {
     top: 25%; /* Align with the top of the viewport */
     right: 51px; /* Align with the right edge */
     width: 5px; /* Width of the rectangle */
-    height: 38%; /* Full height of the viewport */
-    border-right: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
-    border-top: 2px solid rgba(255, 0, 0, 0.38);
-    border-bottom: 2px solid rgba(255, 0, 0, 0.38);
+    height: 43%; /* Full height of the viewport */
+    border: 2px solid rgba(255, 0, 0, 0.38);
+    border-left: none;
+}
+
+.new-rectangle {
+    display: flex;
+    position: absolute; /* Fixed so it stays in view while scrolling */
+    top: 10px;
+    right: 31px; /* Adjust this value to position it to the left of the right-rectangle */
+    width: 90px; /* Width of the rectangle */
+    height: 170px; /* Full height of the viewport (same as right-rectangle) */
+}
+
+.bottom-right-rectangle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15px; /* Width of the new rectangle */
+    height: 5px; /* Height of the new rectangle */
+    border: 1px solid rgba(255, 255, 255, 0.68); /* Border style for the new rectangle */
+    border-left: none;
+    border-top: none;
+}
+
+.bottom-left-rectangle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 15px; /* Width of the new rectangle */
+    height: 5px; /* Height of the new rectangle */
+    border: 1px solid rgba(255, 255, 255, 0.68); /* Border style for the new rectangle */
+    border-right: none;
+    border-top: none;
+}
+
+.top-right-rectangle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px; /* Width of the new rectangle */
+    height: 5px; /* Height of the new rectangle */
+    border: 1px solid rgba(255, 255, 255, 0.68); /* Border style for the new rectangle */
+    border-bottom: none;
+    border-left: none;
+}
+
+.rightbarbottom {
+    position: absolute;
+    right: 0;
+    bottom: 55%;
+    width: 4px; /* Width of the new rectangle */
+    height: 55px; /* Height of the new rectangle */
+    border: 1px solid rgba(255, 0, 0, 0.38); /* Border style for the new rectangle */
+    border-left: none;
+}
+
+.rightbartop {
+    position: absolute;
+    right: 0;
+    bottom: 12%;
+    width: 4px; /* Width of the new rectangle */
+    height: 55px; /* Height of the new rectangle */
+    border: 1px solid rgba(255, 0, 0, 0.38); /* Border style for the new rectangle */
+    border-left: none;
+}
+
+.rbb {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 6px; /* Width of the new rectangle */
+    height: 48px; /* Height of the new rectangle */
+    background-color: rgba(255, 0, 0, 0.38);
+}
+
+.rbt {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 6px; /* Width of the new rectangle */
+    height: 48px; /* Height of the new rectangle */
+    background-color: rgba(255, 0, 0, 0.38);
 }
 
 .icon4 {
@@ -269,7 +348,7 @@ body {
 
 .uright-rectangle {
     position: fixed; /* Fixed so it stays in view while scrolling */
-    top: 65%; /* Align with the top of the viewport */
+    top: 70%; /* Align with the top of the viewport */
     right: 51px; /* Align with the right edge */
     width: 5px;
     height: 10%; /* Full height of the viewport */
@@ -423,68 +502,6 @@ body {
     top: 40%; /* Center it vertically */
     transform: translateY(-50%); /* Center the image vertically */
     z-index: 1000; /* Ensure it appears above other elements */
-}
-
-.upright-rectangle {
-    position: relative;
-    top: 10px;
-    width: 100px;
-    right: 120px;
-    height: 60%;
-    border: 1px solid rgba(36, 255, 0, 0.23);
-}
-
-.multidecoration {
-    position: absolute;
-    width: 90%;
-    right: 0;
-    height: 100%;
-    border: 1px solid rgba(0, 20, 255, 0.32);
-}
-
-.mdmiddleright {
-    position: absolute;
-    top: 25%;
-    left: 90%;
-    width: 5px;
-    height: 30%;
-    border: 1px solid rgba(255, 0, 0, 0.38);
-    border-left: none;
-}
-
-.mdbottomright {
-    display: flex;
-    align-items: flex-start; /* Aligns items to the top of the container */
-    justify-content: flex-end; /* Align items to the right */
-    position: relative; /* Allow absolute children to work as expected */
-    width: 5px; /* Confirmed width */
-    left: 90%;
-    top: 60%;
-    height: 30%; /* Confirmed height */
-    border: 1px solid rgba(255, 0, 0, 0.38);
-    border-left: none;
-}
-
-.mdbrectangle1 {
-    position: relative; /* Change from absolute to relative */
-    right: 55%;
-    top: 8%;
-    width: 6px;
-    height: 85%; /* as per requirement */
-    background-color: rgba(255, 0, 0, 0.38);
-    overflow: hidden; /* Ensure hidden overflow */
-    max-height: 100%; /* Ensure it doesn't go outside its parent */
-}
-
-.mdbrectangle2 {
-    position: relative; /* Change from absolute to relative */
-    right: 55%;
-    top: 8%;
-    width: 5px;
-    height: 85%; /* as per requirement */
-    background-color: rgba(255, 0, 0, 0.38);
-    overflow: hidden; /* Ensure hidden overflow */
-    max-height: 100%; /* Ensure it doesn't go outside its parent */
 }
 
 .version-info {
