@@ -466,10 +466,10 @@ body {
 
 .mdbrectangle1 {
     position: relative; /* Change from absolute to relative */
-    right: 50%;
-    top: 10%;
+    right: 55%;
+    top: 8%;
     width: 6px;
-    height: 80%; /* as per requirement */
+    height: 85%; /* as per requirement */
     background-color: rgba(255, 0, 0, 0.38);
     overflow: hidden; /* Ensure hidden overflow */
     max-height: 100%; /* Ensure it doesn't go outside its parent */
@@ -477,18 +477,13 @@ body {
 
 .mdbrectangle2 {
     position: relative; /* Change from absolute to relative */
-    right: 50%;
-    top: 11%;
+    right: 55%;
+    top: 8%;
     width: 5px;
-    height: 80%; /* as per requirement */
+    height: 85%; /* as per requirement */
     background-color: rgba(255, 0, 0, 0.38);
     overflow: hidden; /* Ensure hidden overflow */
     max-height: 100%; /* Ensure it doesn't go outside its parent */
-}
-
-.mdbrectangle2 p {
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
-    color: white;
 }
 
 .version-info {
