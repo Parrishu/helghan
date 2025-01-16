@@ -369,6 +369,40 @@ body {
     height: 23px; /* Maintain aspect ratio */
 }
 
+.nrtext1 {
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    letter-spacing: 4px;
+    font-size: 9pt;
+    color: rgba(255, 0, 0, 0.68);
+    left: -13px;
+    bottom: 139px;
+    display: flex;
+    position: absolute;
+}
+
+.nrtext2 {
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    letter-spacing: 4px;
+    font-size: 9pt;
+    color: rgba(255, 0, 0, 0.68);
+    left: -13px;
+    bottom: 120px;
+    display: flex;
+    position: absolute;
+}
+
+.nrtext3 {
+    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    letter-spacing: 4px;
+    font-size: 9pt;
+    color: rgba(255, 0, 0, 0.68);
+    left: 44px;
+    bottom: 40px;
+    display: flex;
+    position: absolute;
+}
+
+
 .button-prompts {
     position: fixed;
     bottom: 10%; /* Adjust as per desired position */
