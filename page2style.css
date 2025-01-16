@@ -357,6 +357,18 @@ body {
     border-bottom: 2px solid rgba(255, 0, 0, 0.38);
 }
 
+.icon7 {
+    right: 17px;
+    bottom: 155px;
+    display: flex;
+    position: absolute;
+}
+
+.icon7 img {
+    width: auto; /* Specify width for the image */
+    height: 23px; /* Maintain aspect ratio */
+}
+
 .button-prompts {
     position: fixed;
     bottom: 10%; /* Adjust as per desired position */
