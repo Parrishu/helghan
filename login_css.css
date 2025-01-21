@@ -366,7 +366,124 @@ button:hover {
     bottom: 10px;
     right: 10px;
     font-size: 12px;
-    color: rgba(255, 0, 0, 0.37);
+    color: rgba(255, 0, 0, 0.46);
     z-index: 1000;
     font-family: monospace, sans-serif;
+}
+
+.volume-control {
+    position: fixed; /* Position it at the bottom left */
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.volume-button {
+    font-family: Webdings, sans-serif;
+    background: transparent;
+    border: none;
+    height: 35px;
+    width: 30px;
+    font-size: 28px;
+    color: rgba(255, 0, 0, 0.6);
+    outline: none;
+    margin-right: 10px;
+    transition: color 0.3s; /* Transition for hover effect */
+    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+}
+
+.volume-button:hover {
+    background-color: transparent; /* Keep background transparent */
+    color: rgba(255, 0, 0, 0.37); /* Keep text color the same */
+    box-shadow: none; /* Remove any shadow effects */
+}
+
+.volume-slider {
+    width: 100px; /* Set a fixed width for the slider */
+    opacity: 0; /* Initially hide the slider using opacity */
+    visibility: hidden; /* Ensure it is hidden in terms of layout */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Transition for fade effect */
+    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+}
+
+.volume-control:hover .volume-slider {
+    opacity: 1; /* Show slider when hovering over volume control */
+    visibility: visible; /* Make it visible */
+}
+
+.volume-control .volume-slider {
+    pointer-events: none; /* Prevent interaction before hovering */
+}
+
+.volume-control:hover .volume-slider {
+    pointer-events: auto; /* Allow interaction when visible */
+}
+
+.volume-control:hover .volume-button {
+    color: rgba(255, 50, 0, 0.75); /* Change color on hover */
+}
+
+.volume-button img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.volume-slider {
+    -webkit-appearance: none; /* Remove default styling */
+    width: 100px; /* Width of the slider */
+    height: 12px; /* Height of the track */
+    background: rgba(255, 0, 0, 0.2); /* Track color (light red) */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove outline */
+    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none; /* Remove default styling */
+    width: 13px;  /* Width of the thumb */
+    height: 13px; /* Height of the thumb */
+    background: #FF0400; /* Thumb color (red) */
+    border-radius: 50%; /* Make it circular */
+    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+}
+
+.volume-slider::-webkit-slider-runnable-track {
+    height: 12px; /* Height of the track */
+    background: rgba(255, 0, 0, 0.2); /* Track color (light red) */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* For Firefox */
+.volume-slider::-moz-range-thumb {
+    width: 13px;  /* Width of the thumb */
+    height: 13px; /* Height of the thumb */
+    background: #FF0400; /* Thumb color (red) */
+    border-radius: 50%; /* Make it circular */
+    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+}
+
+.volume-slider::-moz-range-track {
+    height: 12px; /* Height of the track */
+    background: rgba(255, 0, 0, 0.2); /* Track color (light red) */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.volume-slider::-ms-thumb {
+    width: 13px;  /* Width of the thumb */
+    height: 13px; /* Height of the thumb */
+    background: #FF0400; /* Thumb color (red) */
+    border-radius: 50%; /* Make it circular */
+    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+}
+
+.volume-slider::-ms-track {
+    height: 12px; /* Height of the track */
+    background: rgba(255, 0, 0, 0.2); /* Track color (light red) */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove borders */
+    color: transparent; /* Hide the color */
 }

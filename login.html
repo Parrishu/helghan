@@ -52,7 +52,7 @@
     </div>
 </div>
 
-<audio id="startupSound" src="assets/startup.wav" preload="auto" autoplay></audio>
+<audio id="startupSound" src="assets/startup.wav"></audio>
 <audio id="clickSound" src="assets/clicksound.wav"></audio>
 <audio id="keypressSound" src="assets/keypress.wav"></audio>
 <audio id="enterSound" src="assets/enter.wav"></audio>
@@ -61,10 +61,14 @@
 <script src="login.js"></script>
 <script>
     // Initialize particles.js
-    particlesJS.load('particles-js', 'assets/particlesjs-config.json', function() {
+    particlesJS.load('particles-js', 'assets/particlesjs-config.json', function () {
         console.log('callback - particles.js config loaded');
     });
 </script>
 <div class="version-info">Version 02.01 - by @prrish</div>
+<div class="volume-control">
+    <button class="volume-button" title="Volume">X</button>
+    <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="1"/>
+</div>
 </body>
 </html>
