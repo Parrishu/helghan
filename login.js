@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial setup for volume
     const volumeSlider = document.querySelector('.volume-slider');
     let currentVolume = 1; // Initialize volume (1.0 = max volume)
-    volumeSlider.value = currentVolume * 100; // Set the slider to the current volume (0-100)
+    volumeSlider.value = currentVolume * 1; // Set the slider to the current volume (0-100)
     let previousVolume = currentVolume; // Store the previous volume level
     let isHovering = false; // Track if hovering over the volume control
 
