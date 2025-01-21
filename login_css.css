@@ -364,16 +364,16 @@ button:hover {
 .version-info {
     position: fixed;
     bottom: 10px;
-    right: 10px;
+    left: 10px;
     font-size: 12px;
-    color: rgba(255, 0, 0, 0.46);
+    color: rgba(255, 0, 0, 0.75);
     z-index: 1000;
     font-family: monospace, sans-serif;
 }
 
 .volume-control {
     position: fixed; /* Position it at the bottom left */
-    bottom: 10px;
+    top: 10px;
     left: 10px;
     display: flex;
     align-items: center;
@@ -444,7 +444,7 @@ button:hover {
 .volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Remove default styling */
     appearance: none; /* Remove default styling */
-    width: 13px;  /* Width of the thumb */
+    width: 13px; /* Width of the thumb */
     height: 13px; /* Height of the thumb */
     background: #FF0400; /* Thumb color (red) */
     border-radius: 50%; /* Make it circular */
@@ -459,7 +459,7 @@ button:hover {
 
 /* For Firefox */
 .volume-slider::-moz-range-thumb {
-    width: 13px;  /* Width of the thumb */
+    width: 13px; /* Width of the thumb */
     height: 13px; /* Height of the thumb */
     background: #FF0400; /* Thumb color (red) */
     border-radius: 50%; /* Make it circular */
@@ -473,7 +473,7 @@ button:hover {
 }
 
 .volume-slider::-ms-thumb {
-    width: 13px;  /* Width of the thumb */
+    width: 13px; /* Width of the thumb */
     height: 13px; /* Height of the thumb */
     background: #FF0400; /* Thumb color (red) */
     border-radius: 50%; /* Make it circular */

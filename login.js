@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentVolume = 1; // Initialize volume (1.0 = max volume)
     volumeSlider.value = currentVolume * 100; // Set the slider to the current volume (0-100)
     let previousVolume = currentVolume; // Store the previous volume level
+    let isHovering = false; // Track if hovering over the volume control
 
     // Function to make the body visible
     const showBody = () => {
@@ -17,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show body after a short delay
     setTimeout(showBody, 100);
 
-// Play startup sound on page load
+    // Play startup sound on page load
     const startupSound = new Audio('assets/startup.wav'); // Create a new Audio object
     startupSound.volume = currentVolume; // Set initial volume for startup sound
 
-// Loop the sound when it ends
+    // Loop the sound when it ends
     startupSound.onended = function() {
         if (currentVolume > 0) {
             startupSound.play().catch(error => {
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-// Start playing the sound
+    // Start playing the sound
     startupSound.play().catch(error => {
         console.error('Error playing startup sound:', error);
     });
@@ -111,6 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Custom logic to handle mouse click as enter when 'spaceman' is typed
+    document.addEventListener('click', function () {
+        if (inputField.value.toLowerCase() === "spaceman") {
+            enterAudio.play().catch(error => {
+                console.error('Error playing enter sound:', error);
+            });
+            handleLogin();
+        }
+    });
+
     function isMobileDevice() {
         return /Mobi|Android/i.test(navigator.userAgent);
     }
@@ -123,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Adjust the volume when the slider is moved
     volumeSlider.addEventListener('input', function () {
-        currentVolume = this.value / 1; // Set volume based on slider value (0-1)
+        currentVolume = this.value / 100; // Set volume based on slider value (0-1)
         console.log('Volume changed to:', currentVolume);
 
         // Update volume for startup sound ONLY
@@ -140,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             startupSound.volume = currentVolume; // Ensure mute applies
         } else {
             currentVolume = previousVolume; // Restore the previous volume
-            volumeSlider.value = currentVolume * 1; // Update the slider position correctly
+            volumeSlider.value = currentVolume * 100; // Update the slider position correctly
             startupSound.volume = currentVolume; // Restore startup sound volume
         }
 
@@ -149,22 +160,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show and hide the slider when hovering over the volume control
     volumeButton.addEventListener('mouseover', function () {
-        volumeSlider.style.display = 'block';
+        isHovering = true;
+        volumeSlider.style.opacity = 1; // Show slider
+        volumeSlider.style.visibility = 'visible'; // Ensure it's visible
     });
 
-    volumeSlider.addEventListener('mouseover', function () {
-        volumeSlider.style.display = 'block'; // Ensure the slider stays visible when hovered
-    });
-
-    volumeSlider.addEventListener('mouseout', function () {
-        volumeSlider.style.display = 'none'; // Hide when not hovering over the slider
-    });
-
-    // Hide the volume slider when not in control area and button/slider are not hovered
-    document.addEventListener('mouseout', function () {
-        if (!volumeControlHovered) {
-            volumeSlider.style.display = 'none';
+    volumeButton.addEventListener('mouseout', function () {
+        if (!isHovering) {
+            volumeSlider.style.opacity = 0; // Hide slider
+            volumeSlider.style.visibility = 'hidden'; // Remove from layout
         }
+    });
+
+    // Keep the slider visible when hovering over it
+    volumeSlider.addEventListener('mouseover', function () {
+        isHovering = true;
+        volumeSlider.style.opacity = 1; // Keep slider visible
+        volumeSlider.style.visibility = 'visible'; // Ensure it's visible
+    });
+
+    // Hide the slider when mouse leaves it
+    volumeSlider.addEventListener('mouseout', function () {
+        isHovering = false;
+        volumeSlider.style.opacity = 0; // Hide slider
+        volumeSlider.style.visibility = 'hidden'; // Remove from layout
     });
 
     // Listen for the pageshow event to handle back navigation from page2.html
