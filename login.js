@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial setup for volume
     const volumeSlider = document.querySelector('.volume-slider');
     let currentVolume = 1; // Initialize volume (1.0 = max volume)
-    volumeSlider.value = currentVolume * 100; // Set the slider to the current volume (0-100)
+    volumeSlider.value = currentVolume * 1; // Set the slider to the current volume (0-100)
     let previousVolume = currentVolume; // Store the previous volume level
     let isHovering = false; // Track if hovering over the volume control
 
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Adjust the volume when the slider is moved
     volumeSlider.addEventListener('input', function () {
-        currentVolume = this.value / 100; // Set volume based on slider value (0-1)
+        currentVolume = this.value / 1; // Set volume based on slider value (0-1)
         console.log('Volume changed to:', currentVolume);
 
         // Update volume for startup sound ONLY
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             startupSound.volume = currentVolume; // Ensure mute applies
         } else {
             currentVolume = previousVolume; // Restore the previous volume
-            volumeSlider.value = currentVolume * 100; // Update the slider position correctly
+            volumeSlider.value = currentVolume * 1; // Update the slider position correctly
             startupSound.volume = currentVolume; // Restore startup sound volume
         }
 
