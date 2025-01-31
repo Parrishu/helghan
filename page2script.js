@@ -43,12 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         currentlyHoveredButtonIndex = nextIndex < 0 ? menuButtons.length - 1 : nextIndex % menuButtons.length;
         currentlyHoveredButton = menuButtons[currentlyHoveredButtonIndex];
-        currentHoverSound();
+        playHoverSound();
         currentlyHoveredButton.classList.add('hovered');
         currentlyHoveredButton.focus();
     }
 
-    function currentHoverSound() {
+    function playHoverSound() {
         hoverSound.currentTime = 0;
         hoverSound.play();
     }
@@ -58,21 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     menuButtons.forEach((button) => {
-        // Existing hover and click handlers...
         button.addEventListener('mouseenter', () => {
-            currentHoverSound();
+            playHoverSound();
             if (currentlyHoveredButton) {
-                currentlyHoveredButton.classList.remove('hovered'); // Remove hover from currently hovered button
+                currentlyHoveredButton.classList.remove('hovered');
             }
-            currentlyHoveredButton = button; // Set the currently hovered button
-            currentlyHoveredButton.classList.add('hovered'); // Add hover to the new button
-            currentlyHoveredButtonIndex = [...menuButtons].indexOf(button); // Update index
+            currentlyHoveredButton = button;
+            currentlyHoveredButton.classList.add('hovered');
+            currentlyHoveredButtonIndex = [...menuButtons].indexOf(button);
         });
 
         button.addEventListener('click', function () {
             if (button === campaignButton || button === logoutButton || button === backToMenuButton) {
-                clickSound.currentTime = 0; // Reset the sound
-                clickSound.play(); // Play click sound
+                clickSound.currentTime = 0;
+                clickSound.play();
             }
 
             if (button === campaignButton) {
@@ -82,30 +81,27 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`Button clicked: ${button.textContent}`);
         });
 
-        // MY DISCORD button functionality
         if (button.textContent.trim() === 'MY DISCORD') {
             button.addEventListener('click', function () {
-                clickSound.currentTime = 0; // Reset the sound
-                clickSound.play(); // Play click sound
-                window.open('http://discordapp.com/users/108932560100274176', '_blank'); // Open link in new tab
+                clickSound.currentTime = 0;
+                clickSound.play();
+                window.open('http://discordapp.com/users/108932560100274176', '_blank');
                 console.log('Navigated to MY DISCORD');
             });
         }
 
-        // Handling keydown events for Enter and Space
         button.addEventListener('keydown', (event) => {
             if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
                 if (button === campaignButton || button === logoutButton || button === backToMenuButton) {
-                    clickSound.currentTime = 0; // Reset the sound
-                    clickSound.play(); // Play click sound
+                    clickSound.currentTime = 0;
+                    clickSound.play();
                 }
-                button.click(); // Simulate button click
+                button.click();
                 console.log(`Button clicked via key: ${button.textContent}`);
             }
         });
 
-        // Focus management
         button.addEventListener('focus', () => {
             if (currentlyHoveredButton !== button) {
                 button.classList.add('hovered');
@@ -120,11 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Logout button functionality
     logoutButton.addEventListener('click', function () {
-        clickSound.currentTime = 0; // Reset the sound
-        clickSound.play(); // Play click sound
-        window.location.href = "login.html"; // Redirects to login.html
+        clickSound.currentTime = 0;
+        clickSound.play();
+        window.location.href = "login.html";
         console.log('Logged out and redirected to login.html');
     });
 
@@ -145,10 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const prevIndex = (currentlyHoveredButtonIndex - 1 + menuButtons.length) % menuButtons.length;
             navigateToButton(prevIndex);
-        } else if (event.key === " ") {
+        } else if (event.key === " " || event.key === "Enter") {
             event.preventDefault();
-            currentlyHoveredButton.click();
-        } else if (event.key === "Enter") {
             currentlyHoveredButton.click();
         }
     });
@@ -201,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     secondaryButtonContainer.style.display = 'none';
 
-    // Campaign button logic
     campaignButton.addEventListener('click', function () {
         buttonContainer.style.display = 'none';
         secondaryButtonContainer.style.display = 'block';
@@ -219,10 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
         navigateToButton(currentlyHoveredButtonIndex);
     });
 
-    // Back to menu button logic
     backToMenuButton.addEventListener('click', function () {
-        clickSound.currentTime = 0; // Play the click sound
-        clickSound.play(); // Play click sound
+        clickSound.currentTime = 0;
+        clickSound.play();
         secondaryButtonContainer.style.display = 'none';
         buttonContainer.style.display = 'block';
         currentlyHoveredButtonIndex = 0;
@@ -241,13 +232,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateMenuTitle("MAIN MENU");
     });
 
-    // Event listeners for secondary buttons
     const secondaryButtons = secondaryButtonContainer.querySelectorAll('.menu-button.secondary-button');
-    secondaryButtons.forEach((button, index) => {
+    secondaryButtons.forEach((button) => {
         button.addEventListener('click', function () {
             if (button.id === 'backToMenuButton') {
-                clickSound.currentTime = 0; // Reset the sound
-                clickSound.play(); // Play click sound for back to menu
+                clickSound.currentTime = 0;
+                clickSound.play();
             }
             console.log(`Secondary button clicked: ${button.textContent}`);
         });

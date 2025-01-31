@@ -1,24 +1,39 @@
+:root {
+    --main-bg-color: #000;
+    --main-text-color: #e5dec6;
+    --hover-bg-color: rgba(255, 0, 0, 0.25);
+    --hover-border-color: #c50000;
+    --hover-shadow-color: red;
+    --font-family-primary: "For-The-Glory-of-Helghan", sans-serif;
+    --font-family-secondary: "Klavika", sans-serif;
+    --font-size-large: 40px;
+    --font-size-medium: 20px;
+    --font-size-small: 15pt;
+    --border-color-light: #e5dec6;
+    --border-color-dark: rgba(255, 0, 0, 0.38);
+    --border-color-white: rgba(255, 255, 255, 0.68);
+    --shadow-color: red;
+    --cube-size: 25px;
+}
+
 body {
     margin: 0;
-    background-color: #000;
-    color: #000;
-    font-family: Klavika, sans-serif, sans-serif;
+    background-color: var(--main-bg-color);
+    color: var(--main-bg-color);
+    font-family: var(--font-family-secondary);
     background-image: url("assets/background_empty.png");
     background-size: cover;
-    user-select: none; /* Prevent text selection on the entire page */
-    -webkit-user-select: none; /* For Chrome/Safari */
-    -moz-user-select: none; /* For Firefox */
-    -ms-user-select: none; /* For Internet Explorer/Edge */
-    cursor: url('assets/cursor_normal.png'), auto; /* Custom cursor for the entire body */
+    user-select: none;
+    cursor: url('assets/cursor_normal.png'), auto;
 }
 
 #particles-js {
-    position: fixed; /* Change to fixed so it covers entire viewport */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    z-index: 0; /* Ensure it is behind other elements */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
 }
 
 @font-face {
@@ -42,75 +57,75 @@ body {
 .menu-container {
     display: flex;
     align-items: center;
-    padding-right: 10px; /* Removed redundant padding-left and margin-top */
+    padding-right: 10px;
 }
 
 .rectangle {
     width: 120px;
     height: 40px;
     margin-right: 10px;
-    border: 1px solid #e5dec6; /* Consolidated border styles */
-    box-shadow: 0 2px 10px red;
+    border: 1px solid var(--border-color-light);
+    box-shadow: 0 2px 10px var(--shadow-color);
     position: relative;
 }
 
 .cube {
-    width: 25px;
-    height: 25px;
+    width: var(--cube-size);
+    height: var(--cube-size);
     position: absolute;
     padding-top: 3px;
     right: 3px;
     top: 50%;
     transform: translateY(-50%);
-    color: #e3dcc4;
+    color: var(--border-color-light);
     font-size: 19px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #e3dcc4;
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
-    text-shadow: 0 3px 10px red;
+    border: 2px solid var(--border-color-light);
+    font-family: var(--font-family-primary);
+    text-shadow: 0 3px 10px var(--shadow-color);
 }
 
 .box23 {
-    display: flex; /* Use flexbox to align the cubes in a row */
-    position: fixed; /* Fix position according to viewport */
-    right: 30px; /* Distance from the right edge */
-    top: 13%; /* Center it vertically */
-    transform: translateY(-50%); /* Adjust to perfectly center vertically */
-    align-items: center; /* Center the cubes vertically */
+    display: flex;
+    position: fixed;
+    right: 30px;
+    top: 13%;
+    transform: translateY(-50%);
+    align-items: center;
 }
 
 .cube2, .cube3 {
-    width: 25px;
-    height: 25px;
+    width: var(--cube-size);
+    height: var(--cube-size);
     padding-top: 3px;
-    color: #e3dcc4;
+    color: var(--border-color-light);
     font-size: 19px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #e3dcc4;
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
-    text-shadow: 0 3px 10px red;
-    margin-left: 5px; /* Space between the cubes */
+    border: 2px solid var(--border-color-light);
+    font-family: var(--font-family-primary);
+    text-shadow: 0 3px 10px var(--shadow-color);
+    margin-left: 5px;
 }
 
 .cube4 {
     position: absolute;
     bottom: 50%;
     right: 120%;
-    width: 25px;
-    height: 25px;
-    color: #e3dcc4;
+    width: var(--cube-size);
+    height: var(--cube-size);
+    color: var(--border-color-light);
     font-size: 16px;
     display: flex;
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
-    text-shadow: 0 3px 8px red;
+    font-family: var(--font-family-primary);
+    text-shadow: 0 3px 8px var(--shadow-color);
 }
 
 .cube5 {
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
+    font-family: var(--font-family-primary);
     font-size: 6pt;
     letter-spacing: 2px;
     position: fixed;
@@ -121,240 +136,217 @@ body {
 }
 
 .menu-text {
-    font-size: 40px;
-    color: #e5dec6;
-    padding: 0 10px 0 1px; /* Consolidated padding */
-    text-shadow: 0 5px 10px red;
+    font-size: var(--font-size-large);
+    color: var(--main-text-color);
+    padding: 0 10px 0 1px;
+    text-shadow: 0 5px 10px var(--shadow-color);
 }
 
 .menu-rectangle {
     display: flex;
-    border-right: 1px solid #e1dac2;
-    border-top: 1px solid #e1dac2;
-    border-bottom: 1px solid #e1dac2;
+    border-right: 1px solid var(--border-color-light);
+    border-top: 1px solid var(--border-color-light);
+    border-bottom: 1px solid var(--border-color-light);
     width: 3px;
     height: 38px;
-    box-shadow: 0 5px 10px red;
+    box-shadow: 0 5px 10px var(--shadow-color);
 }
 
 .button-container-wrapper {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    margin-top: 0; /* Adjust margin as needed to align with your design */
+    flex-direction: column;
+    margin-top: 0;
 }
 
 .button-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 0 0 150px; /* Consolidated margin */
+    margin: 50px 0 0 150px;
 }
 
 .secondary-button-container {
     margin-left: 150px;
-    margin-top: 50px; /* Space between main and secondary buttons */
-    display: none; /* Initially hidden; will show via JavaScript */
+    margin-top: 50px;
+    display: none;
 }
 
 .menu-button {
-    font-size: 20px;
+    font-size: var(--font-size-medium);
     color: rgba(255, 0, 0, 0.84);
     background-color: transparent;
-    border: 1px solid transparent; /* Add transparent border */
+    border: 1px solid transparent;
     padding: 1px 15px;
     width: 250px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin: 3px 0;
-    cursor: url('assets/cursor_hover.png'), auto; /* Custom cursor for the button */
+    cursor: url('assets/cursor_hover.png'), auto;
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.08);
     position: relative;
-    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s; /* Changed transition */
-    border-left: 1px solid #c60000; /* Keep the left border intact */
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-left: 1px solid #c60000;
     outline: none;
 }
 
 .menu-button.hovered {
-    background-color: rgba(255, 0, 0, 0.25);
-    border-color: #c50000; /* Change the color of the existing border */
-    box-shadow: 0 0 5px red;
-    color: #e5dec6;
+    background-color: var(--hover-bg-color);
+    border-color: var(--hover-border-color);
+    box-shadow: 0 0 5px var(--hover-shadow-color);
+    color: var(--main-text-color);
     text-shadow: 0 2px 5px rgb(255, 0, 0);
 }
 
-/* Pseudo-elements for borders */
 .menu-button.hovered::before,
 .menu-button.hovered::after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 2px; /* Width of the border */
-    background-color: #e5dec6;
+    width: 2px;
+    background-color: var(--main-text-color);
 }
 
 .menu-button.hovered::before {
-    left: -5px; /* Matching width of the left border */
+    left: -5px;
 }
 
 .menu-button.hovered::after {
-    right: -5px; /* Matching width of the right border */
+    right: -5px;
 }
 
 .right-rectangle {
-    position: fixed; /* Fixed so it stays in view while scrolling */
-    top: 25%; /* Align with the top of the viewport */
-    right: 51px; /* Align with the right edge */
-    width: 5px; /* Width of the rectangle */
-    height: 43%; /* Full height of the viewport */
-    border: 2px solid rgba(255, 0, 0, 0.38);
+    position: fixed;
+    top: 25%;
+    right: 51px;
+    width: 5px;
+    height: 43%;
+    border: 2px solid var(--border-color-dark);
     border-left: none;
 }
 
 .new-rectangle {
     display: flex;
-    position: absolute; /* Fixed so it stays in view while scrolling */
+    position: absolute;
     top: 10px;
-    right: 31px; /* Adjust this value to position it to the left of the right-rectangle */
-    width: 90px; /* Width of the rectangle */
-    height: 170px; /* Full height of the viewport (same as right-rectangle) */
+    right: 31px;
+    width: 90px;
+    height: 170px;
+}
+
+.bottom-right-rectangle,
+.bottom-left-rectangle,
+.top-right-rectangle {
+    position: absolute;
+    width: 15px;
+    height: 5px;
+    border: 1px solid var(--border-color-white);
 }
 
 .bottom-right-rectangle {
-    position: absolute;
     bottom: 0;
     right: 0;
-    width: 15px; /* Width of the new rectangle */
-    height: 5px; /* Height of the new rectangle */
-    border: 1px solid rgba(255, 255, 255, 0.68); /* Border style for the new rectangle */
     border-left: none;
     border-top: none;
 }
 
 .bottom-left-rectangle {
-    position: absolute;
     bottom: 0;
     left: 0;
-    width: 15px; /* Width of the new rectangle */
-    height: 5px; /* Height of the new rectangle */
-    border: 1px solid rgba(255, 255, 255, 0.68); /* Border style for the new rectangle */
     border-right: none;
     border-top: none;
 }
 
 .top-right-rectangle {
-    position: absolute;
     top: 0;
     right: 0;
-    width: 15px; /* Width of the new rectangle */
-    height: 5px; /* Height of the new rectangle */
-    border: 1px solid rgba(255, 255, 255, 0.68); /* Border style for the new rectangle */
     border-bottom: none;
     border-left: none;
 }
 
-.rightbarbottom {
-    position: absolute;
-    right: 0;
-    bottom: 55%;
-    width: 4px; /* Width of the new rectangle */
-    height: 55px; /* Height of the new rectangle */
-    border: 1px solid rgba(255, 0, 0, 0.38); /* Border style for the new rectangle */
-    border-left: none;
-}
-
+.rightbarbottom,
 .rightbartop {
     position: absolute;
     right: 0;
-    bottom: 12%;
-    width: 4px; /* Width of the new rectangle */
-    height: 55px; /* Height of the new rectangle */
-    border: 1px solid rgba(255, 0, 0, 0.38); /* Border style for the new rectangle */
+    width: 4px;
+    height: 55px;
+    border: 1px solid var(--border-color-dark);
     border-left: none;
 }
 
-.rbb {
-    position: absolute;
-    right: 4px;
-    bottom: 4px;
-    width: 6px; /* Width of the new rectangle */
-    height: 48px; /* Height of the new rectangle */
-    background-color: rgba(255, 0, 0, 0.38);
-}
-
+.rbb,
 .rbt {
     position: absolute;
     right: 4px;
     bottom: 4px;
-    width: 6px; /* Width of the new rectangle */
-    height: 48px; /* Height of the new rectangle */
-    background-color: rgba(255, 0, 0, 0.38);
+    width: 6px;
+    height: 48px;
+    background-color: var(--border-color-dark);
 }
 
 .icon4 {
-    border: transparent;
+    bottom: 5px;
+}
+.icon4,
+.icon5,
+.icon6 {
     position: absolute;
     right: 25px;
-    bottom: 5px;
     height: 13px;
     width: 13px;
+    border: transparent;
+}
+
+.icon5,
+.icon6 {
+    display: flex;
 }
 
 .icon5 {
-    border: transparent;
-    display: flex;
-    position: absolute;
-    right: 25px;
     bottom: 35px;
-    height: 13px;
-    width: 13px;
 }
 
 .icon6 {
-    border: transparent;
-    display: flex;
-    position: absolute;
-    right: 25px;
     bottom: 52px;
-    height: 13px;
-    width: 13px;
+}
+
+.icon5 p,
+.icon6 p {
+    font-family: var(--font-family-primary);
+    font-size: 7pt;
+    letter-spacing: 1px;
+    position: absolute;
 }
 
 .icon5 p {
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
     color: rgba(255, 0, 0, 0.37);
-    letter-spacing: 1px;
-    font-size: 7pt;
-    position: absolute;
     bottom: 8px;
     right: 20px;
 }
 
 .icon6 p {
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
     color: rgba(255, 0, 0, 0.59);
-    letter-spacing: 1px;
-    font-size: 7pt;
-    position: absolute;
     top: 41px;
     right: 20px;
 }
 
-.icon4 img, .icon5 img, .icon6 img {
+.icon4 img,
+.icon5 img,
+.icon6 img {
     width: 100%;
     height: auto;
 }
 
 .uright-rectangle {
-    position: fixed; /* Fixed so it stays in view while scrolling */
-    top: 70%; /* Align with the top of the viewport */
-    right: 51px; /* Align with the right edge */
+    position: fixed;
+    top: 70%;
+    right: 51px;
     width: 5px;
-    height: 10%; /* Full height of the viewport */
-    border-right: 2px solid rgba(255, 0, 0, 0.38); /* Border on the left side for separation */
-    border-top: 2px solid rgba(255, 0, 0, 0.38);
-    border-bottom: 2px solid rgba(255, 0, 0, 0.38);
+    height: 10%;
+    border-right: 2px solid var(--border-color-dark);
+    border-top: 2px solid var(--border-color-dark);
+    border-bottom: 2px solid var(--border-color-dark);
 }
 
 .icon7 {
@@ -365,188 +357,175 @@ body {
 }
 
 .icon7 img {
-    width: auto; /* Specify width for the image */
-    height: 23px; /* Maintain aspect ratio */
+    width: auto;
+    height: 23px;
+}
+
+.nrtext1,
+.nrtext2,
+.nrtext3 {
+    font-family: var(--font-family-primary);
+    font-size: 9pt;
+    letter-spacing: 4px;
+    color: rgba(255, 0, 0, 0.68);
+    display: flex;
+    position: absolute;
 }
 
 .nrtext1 {
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
-    letter-spacing: 4px;
-    font-size: 9pt;
-    color: rgba(255, 0, 0, 0.68);
     left: -13px;
     bottom: 139px;
-    display: flex;
-    position: absolute;
 }
 
 .nrtext2 {
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
-    letter-spacing: 4px;
-    font-size: 9pt;
-    color: rgba(255, 0, 0, 0.68);
     left: -13px;
     bottom: 120px;
-    display: flex;
-    position: absolute;
 }
 
 .nrtext3 {
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
-    letter-spacing: 4px;
-    font-size: 9pt;
-    color: rgba(255, 0, 0, 0.68);
     left: 44px;
     bottom: 40px;
-    display: flex;
-    position: absolute;
 }
-
 
 .button-prompts {
     position: fixed;
-    bottom: 10%; /* Adjust as per desired position */
-    left: 5%; /* Adjust as per desired position */
-    display: flex; /* Align items horizontally */
-    justify-content: flex-start; /* Align items to the start */
-    align-items: center; /* Center items vertically */
+    bottom: 10%;
+    left: 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .button-prompt-container {
-    display: flex; /* Ensure prompts are aligned in a row */
-    gap: 20px; /* Space between the prompts */
+    display: flex;
+    gap: 20px;
 }
 
-.select, .back {
-    font-size: 15pt;
-    padding: 0; /* Add padding for better touch area */
+.select,
+.back {
+    font-size: var(--font-size-small);
+    padding: 0;
     margin-bottom: -10%;
-    text-align: right; /* Text alignment */
+    text-align: right;
     background-color: rgba(255, 0, 0, 0);
     color: rgba(255, 0, 0, 0.55);
-    display: flex; /* Use flexbox to better align items */
-    align-items: center; /* Center align text vertically */
+    display: flex;
+    align-items: center;
 }
 
-.select img, .back img {
-    width: 25px; /* Specify width for the image */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px; /* Add space between image and text */
+.select img,
+.back img {
+    width: 25px;
+    height: auto;
+    margin-right: 10px;
 }
 
-.slider1 {
+.slider1,
+.slider2,
+.slider3 {
     position: absolute;
-    top: 75%;
     border: 1px solid rgba(255, 0, 0, 0.31);
-    left: 4%;
     width: 13px;
     height: 40px;
 }
 
-.slider1-container {
+.slider1 {
+    top: 75%;
+    left: 4%;
+}
+
+.slider2 {
+    bottom: 38px;
+    left: 4px;
+}
+
+.slider3 {
+    bottom: 47px;
+    left: -1px;
+}
+
+.slider1-container,
+.slider2-container,
+.slider3-container {
     position: absolute;
-    top: 65%;
-    background-color: rgba(255, 0, 0, 0.76);
     right: 0;
     width: 18px;
     height: 5px;
 }
 
-.slider1-text {
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
+.slider1-container {
+    top: 65%;
+    background-color: rgba(255, 0, 0, 0.76);
+}
+
+.slider2-container {
+    background-color: rgba(255, 204, 0, 0.8);
+    top: 30%;
+}
+
+.slider3-container {
+    top: 60%;
+    background-color: rgba(255, 0, 0, 0.44);
+}
+
+.slider1-text,
+.slider2-text {
+    font-family: var(--font-family-primary);
     font-size: 10pt;
     letter-spacing: 3px;
     position: absolute;
     color: rgba(255, 0, 0, 0.3);
+}
+
+.slider1-text {
     left: 30px;
     bottom: 15px;
 }
 
-.slider2 {
-    position: absolute;
-    bottom: 38px;
-    border: 1px solid rgba(255, 0, 0, 0.31);
-    left: 4px;
-    width: 13px;
-    height: 40px;
-}
-
-.slider2-container {
-    position: absolute;
-    top: 30%;
-    right: 0;
-    width: 18px;
-    height: 5px;
-}
-
 .slider2-text {
-    font-family: "For-The-Glory-of-Helghan", sans-serif;
-    font-size: 10pt;
-    letter-spacing: 3px;
-    position: absolute;
-    color: rgba(255, 0, 0, 0.3);
     left: 30px;
     bottom: -5px;
 }
 
-.slider3 {
-    position: absolute;
-    bottom: 47px;
-    border: 1px solid rgba(255, 0, 0, 0.31);
-    left: -1px;
-    width: 13px;
-    height: 40px;
-}
-
-.slider3-container {
-    position: absolute;
-    top: 60%;
-    background-color: rgba(255, 0, 0, 0.44);
-    right: 0;
-    width: 18px;
-    height: 5px;
-}
-
-.icon1 {
+.icon1,
+.icon2,
+.icon3 {
     position: absolute;
     border: transparent;
-    left: -5px;
-    bottom: 70px;
     height: 25px;
     width: 25px;
 }
 
-.icon1 img {
+.icon1 {
+    left: -5px;
+    bottom: 70px;
+}
+
+.icon2 {
+    left: 28px;
+    bottom: 0;
+}
+
+.icon3 {
+    left: 0;
+    bottom: 28px;
+}
+
+.icon1 img,
+.icon2 img,
+.icon3 img {
     width: 100%;
     height: auto;
 }
 
-.icon2 {
-    position: absolute;
-    border: transparent;
-    left: 28px;
-    bottom: 0px;
-    height: 25px;
-    width: 25px;
-}
-
-.icon3 {
-    position: absolute;
-    border: transparent;
-    left: 0px;
-    bottom: 28px;
-    height: 25px;
-    width: 25px;
-}
-
 .looping-gif {
-    position: fixed; /* Position it fixed to keep it in place */
+    position: fixed;
     width: 34%;
-    right: 80px; /* Adjust to your liking */
+    right: 80px;
     left: 55%;
-    top: 40%; /* Center it vertically */
-    transform: translateY(-50%); /* Center the image vertically */
-    z-index: 1000; /* Ensure it appears above other elements */
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 1000;
 }
 
 .version-info {
@@ -561,18 +540,18 @@ body {
 
 /* Fade-in animation */
 .fade-in {
-    opacity: 0; /* Start transparent */
-    animation: fadeIn 1s forwards; /* Fade in animation */
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
 @keyframes fadeIn {
     to {
-        opacity: 1; /* End with full opacity */
+        opacity: 1;
     }
 }
 
 .fade-out {
     opacity: 0;
-    transition: opacity 0.5s ease; /* Adjust timing as needed */
-    pointer-events: none; /* Prevent interactions while fading out */
+    transition: opacity 0.5s ease;
+    pointer-events: none;
 }
