@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuButtons = document.querySelectorAll('.menu-button');
     const buttonContainer = document.querySelector('.button-container');
-    const secondaryButtonContainer = document.querySelector('.secondary-button-container');
+    const campaignButtonContainer = document.querySelector('.campaign-button-container'); // Renamed
+    const aboutButtonContainer = document.querySelector('.about-button-container'); // New
     const campaignButton = document.getElementById('campaignButton');
-    const backToMenuButton = document.getElementById('backToMenuButton');
+    const aboutButton = document.getElementById('aboutButton'); // New
+    const backToMenuButtonAbout = document.getElementById('backToMenuButtonAbout'); // Added
+    const backToMenuButton = document.getElementById('backToMenuButton'); // Existing
     const menuText = document.querySelector('.menu-text');
     const logoutButton = document.querySelector('.menu-button:last-child'); // LOG OUT button
 
@@ -31,19 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMenu();
 
     function updateMenuButtons() {
-        const visibleButtonContainer = buttonContainer.style.display === 'none' ? secondaryButtonContainer : buttonContainer;
+        const visibleButtonContainer = buttonContainer.style.display === 'none' ? (campaignButtonContainer.style.display === 'block' ? campaignButtonContainer : aboutButtonContainer) : buttonContainer;
+        const previousButtons = document.querySelectorAll('.menu-button.hovered');
+        if (previousButtons.length > 0) {
+            previousButtons.forEach((button) => button.classList.remove('hovered'));
+        }
         return visibleButtonContainer.querySelectorAll('.menu-button');
     }
 
     function navigateToButton(nextIndex) {
         const menuButtons = updateMenuButtons();
-        if (currentlyHoveredButton && currentlyHoveredButtonIndex !== nextIndex) {
+
+        if (currentlyHoveredButton) {
             currentlyHoveredButton.classList.remove('hovered');
         }
 
         currentlyHoveredButtonIndex = nextIndex < 0 ? menuButtons.length - 1 : nextIndex % menuButtons.length;
         currentlyHoveredButton = menuButtons[currentlyHoveredButtonIndex];
-        playHoverSound();
         currentlyHoveredButton.classList.add('hovered');
         currentlyHoveredButton.focus();
     }
@@ -69,13 +76,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         button.addEventListener('click', function () {
-            if (button === campaignButton || button === logoutButton || button === backToMenuButton) {
+            // Play click sound for relevant buttons
+            if ([campaignButton, logoutButton, backToMenuButton, backToMenuButtonAbout, aboutButton].includes(button)) {
                 clickSound.currentTime = 0;
                 clickSound.play();
             }
 
             if (button === campaignButton) {
+                // Fade out specified elements
+                document.querySelector('.looping-gif').classList.add('fade-out');
+                document.querySelector('.right-rectangle').classList.add('fade-out');
+                document.querySelector('.uright-rectangle').classList.add('fade-out');
+
                 updateMenuTitle(button.textContent.toUpperCase());
+                buttonContainer.style.display = 'none';
+                campaignButtonContainer.style.display = 'block'; // Show campaign buttons
+                currentlyHoveredButtonIndex = 0;
+                navigateToButton(currentlyHoveredButtonIndex);
+            } else if (button === aboutButton) {
+                updateMenuTitle("ABOUT");
+                buttonContainer.style.display = 'none';
+                aboutButtonContainer.style.display = 'block'; // Show about buttons
+                currentlyHoveredButtonIndex = 0;
+
+                const aboutInfoButton = aboutButtonContainer.querySelector('#aboutInfoButton');
+                if (aboutInfoButton) {
+                    currentlyHoveredButton = aboutInfoButton;
+                    aboutInfoButton.classList.add('hovered');
+                }
+                navigateToButton(currentlyHoveredButtonIndex); // Navigation to the first about button
+            } else if (button === backToMenuButton) {
+                // Go back to the main menu
+                campaignButtonContainer.style.display = 'none';
+                buttonContainer.style.display = 'block';
+                currentlyHoveredButtonIndex = 0;
+                navigateToButton(currentlyHoveredButtonIndex);
+                updateMenuTitle("MAIN MENU"); // Optional: reset title when going back
+            } else if (button === backToMenuButtonAbout) {
+                // Go back to main menu from about menu
+                aboutButtonContainer.style.display = 'none';
+                buttonContainer.style.display = 'block';
+                currentlyHoveredButtonIndex = 0;
+                const firstButton = buttonContainer.querySelector('.first-button');
+
+                if (currentlyHoveredButton) {
+                    currentlyHoveredButton.classList.remove('hovered');
+                }
+
+                if (firstButton) {
+                    currentlyHoveredButton = firstButton;
+                    firstButton.classList.add('hovered');
+                }
+                navigateToButton(currentlyHoveredButtonIndex);
+                updateMenuTitle("MAIN MENU"); // Ensure the title updates on return
             }
 
             console.log(`Button clicked: ${button.textContent}`);
@@ -93,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('keydown', (event) => {
             if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
-                if (button === campaignButton || button === logoutButton || button === backToMenuButton) {
+                if ([campaignButton, logoutButton, backToMenuButton, backToMenuButtonAbout, aboutButton].includes(button)) {
                     clickSound.currentTime = 0;
                     clickSound.play();
                 }
@@ -192,54 +245,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gameLoop();
 
-    secondaryButtonContainer.style.display = 'none';
+    campaignButtonContainer.style.display = 'none'; // Ensure it's hidden initially
+    aboutButtonContainer.style.display = 'none'; // Ensure it's hidden initially
 
-    campaignButton.addEventListener('click', function () {
-        buttonContainer.style.display = 'none';
-        secondaryButtonContainer.style.display = 'block';
-        currentlyHoveredButtonIndex = 0;
-
-        const newMissionButton = secondaryButtonContainer.querySelector('#newMissionButton');
-        if (newMissionButton) {
-            if (currentlyHoveredButton) {
-                currentlyHoveredButton.classList.remove('hovered');
-            }
-            currentlyHoveredButton = newMissionButton;
-            newMissionButton.classList.add('hovered');
-        }
-
-        navigateToButton(currentlyHoveredButtonIndex);
-    });
-
-    backToMenuButton.addEventListener('click', function () {
-        clickSound.currentTime = 0;
-        clickSound.play();
-        secondaryButtonContainer.style.display = 'none';
-        buttonContainer.style.display = 'block';
-        currentlyHoveredButtonIndex = 0;
-
-        if (currentlyHoveredButton) {
-            currentlyHoveredButton.classList.remove('hovered');
-        }
-
-        const firstButton = buttonContainer.querySelector('.first-button');
-        if (firstButton) {
-            currentlyHoveredButton = firstButton;
-            firstButton.classList.add('hovered');
-        }
-
-        navigateToButton(currentlyHoveredButtonIndex);
-        updateMenuTitle("MAIN MENU");
-    });
-
-    const secondaryButtons = secondaryButtonContainer.querySelectorAll('.menu-button.secondary-button');
-    secondaryButtons.forEach((button) => {
+    // Add event listeners for about buttons to handle click events, similar to campaign buttons
+    const aboutButtons = aboutButtonContainer.querySelectorAll('.menu-button.about-button');
+    aboutButtons.forEach((button) => {
         button.addEventListener('click', function () {
-            if (button.id === 'backToMenuButton') {
-                clickSound.currentTime = 0;
-                clickSound.play();
-            }
-            console.log(`Secondary button clicked: ${button.textContent}`);
+            console.log(`About button clicked: ${button.textContent}`);
+            // You can add specific logic for each about button if needed
         });
     });
 });

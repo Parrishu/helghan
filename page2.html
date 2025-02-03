@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="google" content="notranslate">
-    <meta property="og:description" content="Datascape access restricted.  Firewall traversal unauthorized.  Neural implant desynchronized.  Cybernetic link compromised.  Awaiting uplink re-establishment...  Input override code"/>
-    <meta property="og:image" content="https://territorystudio.com/wp-content/uploads/2018/09/Games_Killzone3_L_010.jpg"/>
+    <meta property="og:description"
+          content="Datascape access restricted.  Firewall traversal unauthorized.  Neural implant desynchronized.  Cybernetic link compromised.  Awaiting uplink re-establishment...  Input override code"/>
+    <meta property="og:image"
+          content="https://territorystudio.com/wp-content/uploads/2018/09/Games_Killzone3_L_010.jpg"/>
     <meta property="og:url" content="https://helghan.site"/>
     <link rel="icon" type="image/png" href="assets/icon_backup.png">
     <title>Helghan Terminal</title>
     <link rel="stylesheet" href="page2style.css">
     <script src="assets/particles.js"></script>
 </head>
-
 <body>
 <div id="particles-js"></div>
 <div class="menu-parent">
@@ -34,19 +34,25 @@
     <div class="button-container-wrapper">
         <div class="button-container">
             <div class="menu-button first-button" id="campaignButton">CAMPAIGN</div>
-            <div class="menu-button">ABOUT</div>
+            <div class="menu-button" id="aboutButton">ABOUT</div>
             <div class="menu-button">MEMORY LANE</div>
             <div class="menu-button">MY DISCORD</div>
             <div class="menu-button">OPTIONS</div>
-            <div class="menu-button">LOG OUT</div>
+            <div class="menu-button" id="logoutButton">LOG OUT</div>
         </div>
 
-        <!-- This container will hold the secondary buttons -->
-        <div class="secondary-button-container" style="display: none;">
-            <div class="menu-button secondary-button" id="newMissionButton">NEW MISSION</div>
-            <div class="menu-button secondary-button" id="selectMissionButton">SELECT MISSION</div>
-            <div class="menu-button secondary-button" id="restartCheckpointButton">RESTART CHECKPOINT</div>
+        <div class="campaign-button-container" style="display: none;">
+            <div class="menu-button first-button campaign-button" id="newMissionButton">NEW MISSION</div>
+            <div class="menu-button campaign-button" id="selectMissionButton">SELECT MISSION</div>
+            <div class="menu-button campaign-button" id="restartCheckpointButton">RESTART CHECKPOINT</div>
             <div class="menu-button" id="backToMenuButton">BACK TO MENU</div>
+        </div>
+
+        <div class="about-button-container" style="display: none;">
+            <div class="menu-button about-button" id="aboutInfoButton">INFO</div>
+            <div class="menu-button about-button" id="aboutTeamButton">TEAM</div>
+            <div class="menu-button about-button" id="aboutHistoryButton">HISTORY</div>
+            <div class="menu-button" id="backToMenuButtonAbout">BACK TO MENU</div>
         </div>
     </div>
 </div>
