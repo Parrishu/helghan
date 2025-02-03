@@ -10,7 +10,7 @@
     --font-size-medium: 20px;
     --font-size-small: 15pt;
     --border-color-light: #e5dec6;
-    --border-color-dark: rgba(255, 0, 0, 0.38);
+    --border-color-dark: rgba(255, 0, 0, 0.27);
     --border-color-white: rgba(255, 255, 255, 0.68);
     --shadow-color: red;
     --cube-size: 25px;
@@ -265,9 +265,17 @@ body {
     border-left: none;
 }
 
-.rightbarbottom,
 .rightbartop {
     position: absolute;
+    top: 25px;
+}
+
+.rightbarbottom {
+    position: absolute;
+    top: 85px;
+}
+
+.rightbartop, .rightbarbottom {
     right: 0;
     width: 4px;
     height: 55px;
@@ -275,8 +283,7 @@ body {
     border-left: none;
 }
 
-.rbb,
-.rbt {
+.rbb, .rbt {
     position: absolute;
     right: 4px;
     bottom: 4px;
@@ -288,6 +295,7 @@ body {
 .icon4 {
     bottom: 5px;
 }
+
 .icon4,
 .icon5,
 .icon6 {
