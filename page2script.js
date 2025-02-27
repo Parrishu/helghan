@@ -94,16 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentlyHoveredButtonIndex = 0;
                 navigateToButton(currentlyHoveredButtonIndex);
 
-                // Hide specified elements
+                // Hide specified elements with fade-out effect
                 const gifElement = document.querySelector('.looping-gif');
                 const rightRectangleElement = document.querySelector('.right-rectangle');
                 const urightRectangleElement = document.querySelector('.uright-rectangle');
 
-                // Hide elements completely
-                if (gifElement) gifElement.style.display = 'none';
-                if (rightRectangleElement) rightRectangleElement.style.display = 'none';
-                if (urightRectangleElement) urightRectangleElement.style.display = 'none';
+                if (gifElement) gifElement.classList.add('fade-out');
+                if (rightRectangleElement) rightRectangleElement.classList.add('fade-out');
+                if (urightRectangleElement) urightRectangleElement.classList.add('fade-out');
             }
+
+            // Ensure the hover effect stays on the button without a secondary menu
+            button.classList.add('hovered');
 
             console.log(`Button clicked: ${button.textContent}`);
         });
@@ -135,6 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('focus', () => {
             button.classList.add('hovered');
             currentlyHoveredButton = button; // Ensure the currently hovered button updates correctly
+        });
+
+        // Ensure the hover effect stays on blur if no secondary menu
+        button.addEventListener('blur', () => {
+            if (buttonContainer.style.display !== 'none' && campaignButtonContainer.style.display === 'none' && aboutButtonContainer.style.display === 'none') {
+                button.classList.add('hovered');
+            }
         });
     });
 
@@ -201,9 +210,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const rightRectangleElement = document.querySelector('.right-rectangle');
         const urightRectangleElement = document.querySelector('.uright-rectangle');
 
-        if (gifElement) gifElement.style.display = 'block'; // Show element again
-        if (rightRectangleElement) rightRectangleElement.style.display = 'block'; // Show element again
-        if (urightRectangleElement) urightRectangleElement.style.display = 'block'; // Show element again
+        if (gifElement) {
+            gifElement.classList.remove('fade-out');
+            gifElement.classList.add('fade-in');
+        }
+        if (rightRectangleElement) {
+            rightRectangleElement.classList.remove('fade-out');
+            rightRectangleElement.classList.add('fade-in');
+        }
+        if (urightRectangleElement) {
+            urightRectangleElement.classList.remove('fade-out');
+            urightRectangleElement.classList.add('fade-in');
+        }
     });
 
     document.addEventListener('keydown', (event) => {
