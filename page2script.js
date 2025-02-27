@@ -68,26 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('mouseenter', () => {
             playHoverSound();
             if (currentlyHoveredButton) {
-                currentlyHoveredButton.classList.remove('hovered');
+                currentlyHoveredButton.classList.remove('hovered'); // Remove hover from currently hovered button
             }
-            currentlyHoveredButton = button;
-            currentlyHoveredButton.classList.add('hovered');
-            currentlyHoveredButtonIndex = [...menuButtons].indexOf(button);
+            currentlyHoveredButton = button; // Set the currently hovered button
+            currentlyHoveredButton.classList.add('hovered'); // Add hover to the new button
+            currentlyHoveredButtonIndex = [...menuButtons].indexOf(button); // Update index
         });
 
         button.addEventListener('click', function () {
-            // Play click sound for relevant buttons
-            if ([campaignButton, logoutButton, backToMenuButton, backToMenuButtonAbout, aboutButton].includes(button)) {
-                clickSound.currentTime = 0;
-                clickSound.play();
+            if (button === campaignButton || button === logoutButton || button === backToMenuButton || button === backToMenuButtonAbout || button === aboutButton) {
+                clickSound.currentTime = 0; // Reset the sound
+                clickSound.play(); // Play click sound
             }
 
             if (button === campaignButton) {
-                // Fade out specified elements
-                document.querySelector('.looping-gif').classList.add('fade-out');
-                document.querySelector('.right-rectangle').classList.add('fade-out');
-                document.querySelector('.uright-rectangle').classList.add('fade-out');
-
                 updateMenuTitle(button.textContent.toUpperCase());
                 buttonContainer.style.display = 'none';
                 campaignButtonContainer.style.display = 'block'; // Show campaign buttons
@@ -98,93 +92,124 @@ document.addEventListener('DOMContentLoaded', () => {
                 buttonContainer.style.display = 'none';
                 aboutButtonContainer.style.display = 'block'; // Show about buttons
                 currentlyHoveredButtonIndex = 0;
-
-                const aboutInfoButton = aboutButtonContainer.querySelector('#aboutInfoButton');
-                if (aboutInfoButton) {
-                    currentlyHoveredButton = aboutInfoButton;
-                    aboutInfoButton.classList.add('hovered');
-                }
-                navigateToButton(currentlyHoveredButtonIndex); // Navigation to the first about button
-            } else if (button === backToMenuButton) {
-                // Go back to the main menu
-                campaignButtonContainer.style.display = 'none';
-                buttonContainer.style.display = 'block';
-                currentlyHoveredButtonIndex = 0;
                 navigateToButton(currentlyHoveredButtonIndex);
-                updateMenuTitle("MAIN MENU"); // Optional: reset title when going back
-            } else if (button === backToMenuButtonAbout) {
-                // Go back to main menu from about menu
-                aboutButtonContainer.style.display = 'none';
-                buttonContainer.style.display = 'block';
-                currentlyHoveredButtonIndex = 0;
-                const firstButton = buttonContainer.querySelector('.first-button');
 
-                if (currentlyHoveredButton) {
-                    currentlyHoveredButton.classList.remove('hovered');
-                }
+                // Hide specified elements
+                const gifElement = document.querySelector('.looping-gif');
+                const rightRectangleElement = document.querySelector('.right-rectangle');
+                const urightRectangleElement = document.querySelector('.uright-rectangle');
 
-                if (firstButton) {
-                    currentlyHoveredButton = firstButton;
-                    firstButton.classList.add('hovered');
-                }
-                navigateToButton(currentlyHoveredButtonIndex);
-                updateMenuTitle("MAIN MENU"); // Ensure the title updates on return
+                // Hide elements completely
+                if (gifElement) gifElement.style.display = 'none';
+                if (rightRectangleElement) rightRectangleElement.style.display = 'none';
+                if (urightRectangleElement) urightRectangleElement.style.display = 'none';
             }
 
             console.log(`Button clicked: ${button.textContent}`);
         });
 
+        // MY DISCORD button functionality
         if (button.textContent.trim() === 'MY DISCORD') {
             button.addEventListener('click', function () {
-                clickSound.currentTime = 0;
-                clickSound.play();
-                window.open('http://discordapp.com/users/108932560100274176', '_blank');
+                clickSound.currentTime = 0; // Reset the sound
+                clickSound.play(); // Play click sound
+                window.open('https://discordapp.com/users/108932560100274176', '_blank'); // Open link in new tab
                 console.log('Navigated to MY DISCORD');
             });
         }
 
+        // Handling keydown events for Enter and Space
         button.addEventListener('keydown', (event) => {
             if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
-                if ([campaignButton, logoutButton, backToMenuButton, backToMenuButtonAbout, aboutButton].includes(button)) {
-                    clickSound.currentTime = 0;
-                    clickSound.play();
+                if (button === campaignButton || button === logoutButton || button === backToMenuButton || button === backToMenuButtonAbout || button === aboutButton) {
+                    clickSound.currentTime = 0; // Reset the sound
+                    clickSound.play(); // Play click sound
                 }
-                button.click();
+                button.click(); // Simulate button click
                 console.log(`Button clicked via key: ${button.textContent}`);
             }
         });
 
+        // Keep the hover effect on focus
         button.addEventListener('focus', () => {
-            if (currentlyHoveredButton !== button) {
-                button.classList.add('hovered');
-                currentlyHoveredButton = button;
-            }
-        });
-
-        button.addEventListener('blur', () => {
-            if (!button.matches(':hover') && currentlyHoveredButton === button) {
-                button.classList.remove('hovered');
-            }
+            button.classList.add('hovered');
+            currentlyHoveredButton = button; // Ensure the currently hovered button updates correctly
         });
     });
 
+    // Logout button functionality
     logoutButton.addEventListener('click', function () {
-        clickSound.currentTime = 0;
-        clickSound.play();
-        window.location.href = "login.html";
+        clickSound.currentTime = 0; // Reset the sound
+        clickSound.play(); // Play click sound
+        window.location.href = "login.html"; // Redirects to login.html
         console.log('Logged out and redirected to login.html');
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === "Backspace") {
+                event.preventDefault();
+                window.location.href = "login.html";
+                return;
+            }
+        });
+
+    })
+
+    backToMenuButton.addEventListener('click', function () {
+        clickSound.currentTime = 0; // Play the click sound
+        clickSound.play(); // Play click sound
+        campaignButtonContainer.style.display = 'none';
+        buttonContainer.style.display = 'block';
+        currentlyHoveredButtonIndex = 0;
+
+        if (currentlyHoveredButton) {
+            currentlyHoveredButton.classList.remove('hovered');
+        }
+
+        const firstButton = buttonContainer.querySelector('.first-button');
+        if (firstButton) {
+            currentlyHoveredButton = firstButton;
+            firstButton.classList.add('hovered');
+        }
+
+        navigateToButton(currentlyHoveredButtonIndex);
+        updateMenuTitle("MAIN MENU");
+    });
+
+    backToMenuButtonAbout.addEventListener('click', function () {
+        clickSound.currentTime = 0; // Play the click sound
+        clickSound.play(); // Play click sound
+        aboutButtonContainer.style.display = 'none';
+        buttonContainer.style.display = 'block';
+        currentlyHoveredButtonIndex = 0;
+
+        if (currentlyHoveredButton) {
+            currentlyHoveredButton.classList.remove('hovered');
+        }
+
+        const firstButton = buttonContainer.querySelector('.first-button');
+        if (firstButton) {
+            currentlyHoveredButton = firstButton;
+            firstButton.classList.add('hovered');
+        }
+
+        navigateToButton(currentlyHoveredButtonIndex);
+        updateMenuTitle("MAIN MENU");
+
+        // Show the hidden elements again
+        const gifElement = document.querySelector('.looping-gif');
+        const rightRectangleElement = document.querySelector('.right-rectangle');
+        const urightRectangleElement = document.querySelector('.uright-rectangle');
+
+        if (gifElement) gifElement.style.display = 'block'; // Show element again
+        if (rightRectangleElement) rightRectangleElement.style.display = 'block'; // Show element again
+        if (urightRectangleElement) urightRectangleElement.style.display = 'block'; // Show element again
     });
 
     document.addEventListener('keydown', (event) => {
-        if (event.key === "Backspace") {
-            event.preventDefault();
-            window.location.href = "login.html";
-            return;
-        }
-
         const menuButtons = updateMenuButtons();
 
+        // Arrow keys and other navigation keys
         if (event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "s" || event.key === "S" || event.key === "d" || event.key === "D") {
             event.preventDefault();
             const nextIndex = (currentlyHoveredButtonIndex + 1) % menuButtons.length;
@@ -193,9 +218,16 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const prevIndex = (currentlyHoveredButtonIndex - 1 + menuButtons.length) % menuButtons.length;
             navigateToButton(prevIndex);
-        } else if (event.key === " " || event.key === "Enter") {
+        } else if (event.key === " ") {
             event.preventDefault();
             currentlyHoveredButton.click();
+        } else if (event.key === "Enter") {
+            currentlyHoveredButton.click();
+        } else {
+            // Ensure the hover effect stays on the currently hovered button
+            if (currentlyHoveredButton) {
+                currentlyHoveredButton.classList.add('hovered');
+            }
         }
     });
 
@@ -245,15 +277,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gameLoop();
 
-    campaignButtonContainer.style.display = 'none'; // Ensure it's hidden initially
-    aboutButtonContainer.style.display = 'none'; // Ensure it's hidden initially
+    aboutButtonContainer.style.display = 'none';
+    campaignButtonContainer.style.display = 'none';
 
-    // Add event listeners for about buttons to handle click events, similar to campaign buttons
-    const aboutButtons = aboutButtonContainer.querySelectorAll('.menu-button.about-button');
-    aboutButtons.forEach((button) => {
+    const secondaryButtons = campaignButtonContainer.querySelectorAll('.menu-button.secondary-button');
+    secondaryButtons.forEach((button) => {
         button.addEventListener('click', function () {
-            console.log(`About button clicked: ${button.textContent}`);
-            // You can add specific logic for each about button if needed
+            if (button.id === 'backToMenuButton') {
+                clickSound.currentTime = 0; // Reset the sound
+                clickSound.play(); // Play click sound for back to menu
+            }
+            console.log(`Secondary button clicked: ${button.textContent}`);
         });
     });
 });
