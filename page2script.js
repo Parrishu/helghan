@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', function () {
                 clickSound.currentTime = 0; // Reset the sound
                 clickSound.play(); // Play click sound
-                window.open('https://discordapp.com/users/108932560100274176', '_blank'); // Open link in new tab
+                window.open('https://discordapp.com/users/106265989171191808', '_blank'); // Open link in new tab
                 console.log('Navigated to MY DISCORD');
             });
         }
